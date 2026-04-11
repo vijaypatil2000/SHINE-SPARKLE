@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { X } from 'lucide-react';
+import { X, MapPin } from 'lucide-react';
 import './SpinAndWinModal.css';
 
 const SpinAndWinModal = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [rotated, setRotated] = useState(false);
-
+  const [spinResult, setSpinResult] = useState('');
+  
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsOpen(true);
       document.body.classList.add('modal-open');
-    }, 1500);
+    }, 2000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -19,11 +20,16 @@ const SpinAndWinModal = () => {
     document.body.classList.remove('modal-open');
   };
 
-  const spinWheel = () => {
+  const handleRegisterAndSpin = (e) => {
+    e.preventDefault();
+    if(rotated) return; // Prevent double spin
+    
     setRotated(true);
+    
+    // Simulate API call and wheel spin duration
     setTimeout(() => {
-      alert("Congratulations! You won ₹500/- Promo Wallet");
-    }, 3000);
+      setSpinResult('Congratulations! You won ₹500 Wallet Cash!');
+    }, 4000); // 4 seconds matches CSS animation
   };
 
   if (!isOpen) return null;
@@ -42,15 +48,24 @@ const SpinAndWinModal = () => {
           </div>
           
           <div className="wheel-container">
+            <div className={`wheel-pointer`}></div>
             <div className={`wheel ${rotated ? 'spinning' : ''}`}>
-               <div className="wheel-inner"></div>
+               {/* Slices rendered via CSS conic gradients */}
             </div>
-            <button className="spin-btn" onClick={spinWheel}>SIGN-UP<br/>TO<br/>SPIN</button>
+            <div className="wheel-center-cap">
+              SIGN-UP<br/>TO<br/>SPIN
+            </div>
+            
+            {spinResult && (
+              <div className="spin-result-badge bounce-in">
+                {spinResult}
+              </div>
+            )}
           </div>
         </div>
 
         <div className="spin-right-side">
-          <form className="spin-form" onSubmit={(e) => { e.preventDefault(); spinWheel(); }}>
+          <form className="spin-form" onSubmit={handleRegisterAndSpin}>
             <input type="text" placeholder="Enter Full Name" required className="spin-input" />
             <input type="email" placeholder="Email Address" required className="spin-input" />
             
@@ -59,18 +74,22 @@ const SpinAndWinModal = () => {
               <input type="tel" placeholder="Mobile Number" required className="spin-input phone-input" />
             </div>
 
-            <input type="text" placeholder="Delivery Address" required className="spin-input" />
+            <div className="mobile-group">
+              <div className="country-code"><MapPin size={16} /></div>
+              <input type="text" placeholder="Delivery Address" required className="spin-input phone-input" />
+            </div>
 
             <label className="checkbox-label">
               <input type="checkbox" defaultChecked />
               <span>I agree to the <a>Terms of Use</a> & <a>Privacy Policy</a></span>
             </label>
 
-            <button type="submit" className="btn btn-primary send-otp-btn">REGISTER TO SPIN</button>
-            
-            <div className="already-member">
-              Already a member with us? <a onClick={closeModal}>LOGIN</a>
-            </div>
+            <button 
+              type="submit" 
+              className={`btn btn-primary send-otp-btn ${rotated ? 'disabled-btn' : ''}`}
+            >
+              {rotated ? 'SPINNING...' : 'REGISTER TO SPIN'}
+            </button>
           </form>
         </div>
       </div>
