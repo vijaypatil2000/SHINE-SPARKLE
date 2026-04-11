@@ -2,18 +2,16 @@ import React from 'react';
 import ProductCard from './ProductCard';
 import './ProductGrid.css';
 
-const ProductGrid = ({ products, title = "Featured Products" }) => {
+const ProductGrid = ({ products, title }) => {
   return (
-    <section className="product-section container">
-      <div className="section-header">
-        <h2 className="section-title">{title}</h2>
-        <a href="#" className="view-all">View All</a>
-      </div>
-      
-      <div className="product-grid">
-        {products.map(product => (
-          <ProductCard key={product.id} product={product} />
-        ))}
+    <section className="product-showcase">
+      <div className="container">
+        <h2 className="showcase-title">{title}</h2>
+        <div className="jewelry-grid">
+          {products.map(product => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
       </div>
     </section>
   );

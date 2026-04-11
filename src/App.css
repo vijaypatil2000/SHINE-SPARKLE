@@ -6,5 +6,27 @@
 
 .main-content {
   flex: 1;
-  padding-top: 80px; /* offset for fixed navbar */
+  padding-top: 130px; /* Offset for double-stacked navbar */
+  background-color: var(--bg-tertiary);
+}
+
+/* Candere Style Promotional Banner under Navbar */
+.promotional-banner {
+  background-color: #e6f7f6; /* Soft cyan/mint */
+  text-align: center;
+  padding: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #000;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.grab-now {
+  background-color: var(--accent-primary);
+  color: white;
+  padding: 0.1rem 0.5rem;
+  border-radius: 2px;
+  font-weight: 700;
+  margin-left: 0.5rem;
+  cursor: pointer;
 }
