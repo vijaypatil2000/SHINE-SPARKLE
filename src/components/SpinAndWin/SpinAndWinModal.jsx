@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, MapPin } from 'lucide-react';
+import { X } from 'lucide-react';
 import './SpinAndWinModal.css';
 
 const SpinAndWinModal = () => {
@@ -41,7 +41,7 @@ const SpinAndWinModal = () => {
         
         <div className="spin-left-side">
           <div className="spin-header">
-            <h3>SIGN UP TO DADDY'S STORE</h3>
+            <h3>SIGN UP TO SHINE & SPARKLE</h3>
             <h2>PLAY & WIN</h2>
             <div className="spin-divider"></div>
             <p>Assured rewards worth<br/>up to <strong>₹500</strong> in your wallet</p>
@@ -72,11 +72,6 @@ const SpinAndWinModal = () => {
             <div className="mobile-group">
               <div className="country-code">🇮🇳 +91</div>
               <input type="tel" placeholder="Mobile Number" required className="spin-input phone-input" />
-            </div>
-
-            <div className="mobile-group">
-              <div className="country-code"><MapPin size={16} /></div>
-              <input type="text" placeholder="Delivery Address" required className="spin-input phone-input" />
             </div>
 
             <label className="checkbox-label">

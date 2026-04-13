@@ -1,7 +1,5 @@
 import mongoose from 'mongoose';
 
-const MONGODB_URI = process.env.MONGODB_URI;
-
 // Connection pooling for serverless architectures like Vercel
 let cached = global.mongoose;
 
@@ -10,7 +8,8 @@ if (!cached) {
 }
 
 export async function connectToDatabase() {
-  if (!MONGODB_URI) {
+  const uri = process.env.MONGODB_URI;
+  if (!uri) {
     throw new Error(
       'Please define the MONGODB_URI environment variable inside .env or Vercel dashboard.'
     );
@@ -25,7 +24,7 @@ export async function connectToDatabase() {
       bufferCommands: false,
     };
 
-    cached.promise = mongoose.connect(MONGODB_URI, opts).then((mongoose) => {
+    cached.promise = mongoose.connect(uri, opts).then((mongoose) => {
       console.log('Successfully connected to MongoDB');
       return mongoose;
     });

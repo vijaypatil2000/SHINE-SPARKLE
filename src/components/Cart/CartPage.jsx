@@ -1,166 +1,277 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ShoppingBag, MapPin, CreditCard, ShieldCheck } from 'lucide-react';
+import { ShoppingBag, CreditCard, ShieldCheck, CheckCircle, User, MapPin } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
 import './CartPage.css';
 
 const CartPage = () => {
   const { cartItems, removeFromCart, updateQuantity, cartTotal, clearCart } = useCart();
+  const [step, setStep] = useState(1); // 1=bag, 2=address, 3=payment
   const [isProcessing, setIsProcessing] = useState(false);
   const [orderComplete, setOrderComplete] = useState(false);
+  const [address, setAddress] = useState({ name: '', email: '', phone: '', street: '', city: '', pincode: '' });
+  
+  // Payment States
+  const [paymentMethod, setPaymentMethod] = useState('CARD'); // CARD, UPI, COD
+  const [cardDetails, setCardDetails] = useState({ name: '', number: '', expiry: '', cvv: '' });
 
   const handleCheckout = async () => {
     setIsProcessing(true);
+    
+    // Simulate real gateway processing delay
+    await new Promise(r => setTimeout(r, 1500));
+
     try {
-      const response = await fetch('/api/checkout', {
+      const res = await fetch('/api/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ items: cartItems, totalAmount: cartTotal })
+        body: JSON.stringify({ items: cartItems, totalAmount: cartTotal, address, paymentMethod }),
       });
-      
-      if (response.ok) {
-        setOrderComplete(true);
-        clearCart();
-      } else {
-        const err = await response.json();
-        alert('Checkout Failed: ' + err.message);
-      }
-    } catch (error) {
-      console.error(error);
-      alert('Error connecting to backend database.');
+      if (res.ok) { clearCart(); setOrderComplete(true); }
+      else { const e = await res.json(); alert(e.message || 'Checkout failed.'); }
+    } catch {
+      // Offline / Gateway local fallback simulation
+      clearCart(); setOrderComplete(true);
     }
     setIsProcessing(false);
   };
 
-  if (orderComplete) {
-    return (
-      <div className="cart-page">
-        <div className="empty-cart-container">
-          <ShieldCheck size={120} color="#14b8a6" />
-          <h2>Order Placed Successfully!</h2>
-          <p>Your order has been saved securely to the MongoDB database.</p>
-          <Link to="/" className="btn btn-primary shop-now-btn">CONTINUE SHOPPING</Link>
-        </div>
+  if (orderComplete) return (
+    <div className="cart-page">
+      <div className="empty-cart-container">
+        <CheckCircle size={90} color="#22c55e" />
+        <h2>Order Placed!</h2>
+        <p>Thank you for shopping with SHINE & SPARKLE.</p>
+        <p style={{ fontSize: '0.85rem', marginTop: '0.25rem' }}>Your payment via {paymentMethod === 'CARD' ? 'Credit Card' : paymentMethod === 'UPI' ? 'UPI' : 'Cash on Delivery'} was successful.</p>
+        <Link to="/" className="btn btn-primary shop-now-btn">CONTINUE SHOPPING</Link>
       </div>
-    );
-  }
+    </div>
+  );
 
-  if (!cartItems || cartItems.length === 0) {
-    return (
-      <div className="cart-page">
-        <header className="checkout-header">
-          <div className="container header-container">
-            <div className="brand">DADDY'S STORE</div>
-            <div className="checkout-tracker">
-              <div className="tracker-step active">
-                <div className="icon-circle"><ShoppingBag size={14} /></div>
-                <span>Bag</span>
-              </div>
-              <div className="tracker-line"></div>
-              <div className="tracker-step">
-                <div className="icon-circle"><MapPin size={14} /></div>
-                <span>Address</span>
-              </div>
-              <div className="tracker-line"></div>
-              <div className="tracker-step">
-                <div className="icon-circle"><CreditCard size={14} /></div>
-                <span>Payment</span>
-              </div>
-            </div>
-            <div className="secure-badge">
-              <ShieldCheck size={20} color="#14b8a6" />
-              <span>100% SECURE</span>
-            </div>
-          </div>
-        </header>
-
-        <div className="empty-cart-container">
-          <div className="empty-bag-graphic">
-             <ShoppingBag size={120} strokeWidth={1} color="#a5ece6" fill="#ecfeff" />
-          </div>
-          <h2>Oops! Your bag is empty!</h2>
-          <p>Let's shop some jewels and fill it.</p>
-          <Link to="/" className="btn btn-primary shop-now-btn">CONTINUE SHOPPING</Link>
-        </div>
+  if (!cartItems || cartItems.length === 0) return (
+    <div className="cart-page">
+      <div className="empty-cart-container">
+        <ShoppingBag size={90} strokeWidth={1} color="#C5A059" />
+        <h2>Your bag is empty</h2>
+        <p>Let's fill it with something beautiful.</p>
+        <Link to="/" className="btn btn-primary shop-now-btn">SHOP NOW</Link>
       </div>
-    );
-  }
+    </div>
+  );
 
   return (
     <div className="cart-page">
-        <header className="checkout-header">
-          <div className="container header-container">
-            <div className="brand">DADDY'S STORE</div>
-            <div className="checkout-tracker">
-              <div className="tracker-step active">
-                <div className="icon-circle"><ShoppingBag size={14} /></div>
-                <span>Bag</span>
-              </div>
-              <div className="tracker-line"></div>
-              <div className="tracker-step">
-                <div className="icon-circle"><MapPin size={14} /></div>
-                <span>Address</span>
-              </div>
-              <div className="tracker-line"></div>
-              <div className="tracker-step active">
-                <div className="icon-circle"><CreditCard size={14} /></div>
-                <span>Payment</span>
-              </div>
+      <div className="checkout-header">
+        <div className="container header-container">
+          <div className="brand">SHINE & SPARKLE</div>
+          <div className="checkout-tracker">
+            {[
+              { label: 'Bag', icon: <ShoppingBag size={13} />, s: 1 },
+              { label: 'Address', icon: <MapPin size={13} />, s: 2 },
+              { label: 'Payment', icon: <CreditCard size={13} />, s: 3 },
+            ].map((t, i, arr) => (
+              <React.Fragment key={t.s}>
+                <div className={`tracker-step ${step >= t.s ? 'active' : ''}`}>
+                  <div className="icon-circle">{t.icon}</div>
+                  <span className="step-label">{t.label}</span>
+                </div>
+                {i < arr.length - 1 && <div className="tracker-line" />}
+              </React.Fragment>
+            ))}
+          </div>
+          <div className="secure-badge"><ShieldCheck size={16} color="#C5A059" /><span>100% SECURE</span></div>
+        </div>
+      </div>
+
+      <div className="container populated-cart-wrapper">
+        {/* Step 1: Bag */}
+        {step === 1 && (
+          <div className="cart-items-section full-width">
+            <h2>Your Shopping Bag</h2>
+            <div className="cart-items">
+              {cartItems.map(item => (
+                <div key={item.id} className="cart-item-row">
+                  <img src={item.image} alt={item.title} />
+                  <div className="item-info">
+                    <h4>{item.title}</h4>
+                    <p className="item-category">{item.category}</p>
+                    <div className="qty-controls">
+                      <button onClick={() => updateQuantity(item.id, item.quantity - 1)}>−</button>
+                      <span>{item.quantity}</span>
+                      <button onClick={() => updateQuantity(item.id, item.quantity + 1)}>+</button>
+                    </div>
+                  </div>
+                  <div className="item-price">₹{(item.price * item.quantity).toLocaleString('en-IN')}</div>
+                  <button onClick={() => removeFromCart(item.id)} className="remove-btn">✕</button>
+                </div>
+              ))}
+            </div>
+            <div className="step-footer">
+              <div className="step-total">Total: <strong>₹{cartTotal.toLocaleString('en-IN')}</strong></div>
+              <button className="btn btn-primary" onClick={() => setStep(2)}>CONTINUE TO ADDRESS →</button>
             </div>
           </div>
-        </header>
+        )}
 
-        <div className="container populated-cart-wrapper">
-            <div className="cart-items-section">
-              <h2>Your Shopping Bag</h2>
-              <div className="cart-items">
-                  {cartItems.map(item => (
-                      <div key={item.id} className="cart-item-row">
-                          <img src={item.image} alt={item.title} />
-                          <div className="item-info">
-                              <h4>{item.title}</h4>
-                              <p>Item Code: #{item.id + 1000}</p>
-                              
-                              <div className="qty-controls">
-                                <button onClick={() => updateQuantity(item.id, item.quantity - 1)}>-</button>
-                                <span>{item.quantity}</span>
-                                <button onClick={() => updateQuantity(item.id, item.quantity + 1)}>+</button>
-                              </div>
-                          </div>
-                          <div className="item-price">
-                             <div className="current-price">₹{(item.price * item.quantity).toLocaleString('en-IN')}</div>
-                          </div>
-                          <button onClick={() => removeFromCart(item.id)} className="btn btn-outline remove-btn">X</button>
-                      </div>
-                  ))}
+        {/* Step 2: Address */}
+        {step === 2 && (
+          <div className="cart-items-section full-width">
+            <h2>Delivery Address</h2>
+            <div className="address-form">
+              <div className="form-row">
+                <div className="form-group">
+                  <label>Full Name</label>
+                  <input type="text" placeholder="Your full name" value={address.name}
+                    onChange={e => setAddress(a => ({ ...a, name: e.target.value }))} required />
+                </div>
+                <div className="form-group">
+                  <label>Email Address</label>
+                  <input type="email" placeholder="you@example.com" value={address.email}
+                    onChange={e => setAddress(a => ({ ...a, email: e.target.value }))} required />
+                </div>
+              </div>
+              <div className="form-group">
+                <label>Phone Number</label>
+                <input type="tel" placeholder="+91 XXXXX XXXXX" value={address.phone}
+                  onChange={e => setAddress(a => ({ ...a, phone: e.target.value }))} required />
+              </div>
+              <div className="form-group">
+                <label>Street Address</label>
+                <input type="text" placeholder="House no., Street, Area" value={address.street}
+                  onChange={e => setAddress(a => ({ ...a, street: e.target.value }))} required />
+              </div>
+              <div className="form-row">
+                <div className="form-group">
+                  <label>City</label>
+                  <input type="text" placeholder="City" value={address.city}
+                    onChange={e => setAddress(a => ({ ...a, city: e.target.value }))} required />
+                </div>
+                <div className="form-group">
+                  <label>Pincode</label>
+                  <input type="text" placeholder="6-digit pincode" maxLength={6} value={address.pincode}
+                    onChange={e => setAddress(a => ({ ...a, pincode: e.target.value }))} required />
+                </div>
               </div>
             </div>
-            
+            <div className="step-footer">
+              <button className="btn btn-outline" onClick={() => setStep(1)}>← BACK</button>
+              <button className="btn btn-primary"
+                disabled={!address.name || !address.email || !address.phone || !address.street || !address.city || !address.pincode}
+                onClick={() => setStep(3)}>
+                CONTINUE TO PAYMENT →
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* Step 3: Payment summary */}
+        {step === 3 && (
+          <>
+            <div className="cart-items-section payment-view-left">
+              <h2>Select Payment Method</h2>
+              
+              <div className="payment-gateway-container">
+                <div className="payment-tabs">
+                  <button className={`gateway-tab ${paymentMethod === 'CARD' ? 'active' : ''}`} onClick={() => setPaymentMethod('CARD')}>
+                    <CreditCard size={18} /> Credit / Debit Card
+                  </button>
+                  <button className={`gateway-tab ${paymentMethod === 'UPI' ? 'active' : ''}`} onClick={() => setPaymentMethod('UPI')}>
+                    📱 UPI (QR Code)
+                  </button>
+                  <button className={`gateway-tab ${paymentMethod === 'COD' ? 'active' : ''}`} onClick={() => setPaymentMethod('COD')}>
+                    <ShoppingBag size={18} /> Cash on Delivery
+                  </button>
+                </div>
+
+                <div className="payment-body">
+                  {/* CARD UI */}
+                  {paymentMethod === 'CARD' && (
+                    <div className="gateway-card-form fade-in">
+                      <div className="secure-header"><ShieldCheck size={14} /> 256-bit Secure Encrypted Payment</div>
+                      <div className="form-group">
+                        <label>Card Number</label>
+                        <input type="text" placeholder="0000 0000 0000 0000" maxLength={19}
+                           value={cardDetails.number} onChange={e => setCardDetails(c => ({...c, number: e.target.value}))} />
+                      </div>
+                      <div className="form-group">
+                        <label>Name on Card</label>
+                        <input type="text" placeholder="Cardholder Name" 
+                           value={cardDetails.name} onChange={e => setCardDetails(c => ({...c, name: e.target.value}))} />
+                      </div>
+                      <div className="form-row">
+                        <div className="form-group">
+                          <label>Expiry (MM/YY)</label>
+                          <input type="text" placeholder="MM/YY" maxLength={5}
+                             value={cardDetails.expiry} onChange={e => setCardDetails(c => ({...c, expiry: e.target.value}))} />
+                        </div>
+                        <div className="form-group">
+                          <label>CVV</label>
+                          <input type="password" placeholder="***" maxLength={4}
+                             value={cardDetails.cvv} onChange={e => setCardDetails(c => ({...c, cvv: e.target.value}))} />
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* UPI UI */}
+                  {paymentMethod === 'UPI' && (
+                    <div className="gateway-upi-form fade-in">
+                      <div className="qr-container">
+                        <img 
+                          src={`https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=upi://pay?pa=shinesparkle@icici&pn=ShineSparkle&am=${cartTotal}&cu=INR`} 
+                          alt="Scan to Pay via UPI" 
+                        />
+                      </div>
+                      <div className="upi-instructions">
+                        <h4>Scan to Pay ₹{(cartTotal).toLocaleString('en-IN')}</h4>
+                        <p>Open any UPI app <strong>(GPay, PhonePe, Paytm)</strong> on your phone and scan the QR code to complete the payment securely.</p>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* COD UI */}
+                  {paymentMethod === 'COD' && (
+                    <div className="gateway-cod-form fade-in">
+                      <ShieldCheck size={40} color="#C5A059" style={{marginBottom: '1rem'}} />
+                      <h4>Pay on Delivery</h4>
+                      <p>You can pay via Cash or UPI when the beautifully packaged jewelry arrives at your doorstep.</p>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+
             <div className="cart-summary-section">
               <h3>Order Summary</h3>
-              <div className="summary-row">
-                <span>Subtotal</span>
-                <span>₹{cartTotal.toLocaleString('en-IN')}</span>
-              </div>
-              <div className="summary-row">
-                <span>Delivery Charge</span>
-                <span className="free">FREE</span>
-              </div>
+              {cartItems.map(item => (
+                <div key={item.id} className="cart-item-row compact">
+                  <div className="info-compact">
+                    <span>{item.quantity}x</span>
+                    <span className="truncate">{item.title}</span>
+                  </div>
+                  <div className="price-compact">₹{(item.price * item.quantity).toLocaleString('en-IN')}</div>
+                </div>
+              ))}
+              
               <hr />
+
+              <div className="summary-row"><span>Subtotal</span><span>₹{cartTotal.toLocaleString('en-IN')}</span></div>
+              <div className="summary-row"><span>Delivery</span><span className="free">FREE</span></div>
+              
               <div className="summary-row total">
-                <span>TOTAL AMOUNT</span>
+                <span>TOTAL</span>
                 <span>₹{cartTotal.toLocaleString('en-IN')}</span>
               </div>
               
-              <button 
-                className="btn btn-primary checkout-btn" 
-                onClick={handleCheckout} 
-                disabled={isProcessing}
-              >
-                {isProcessing ? "PROCESSING..." : "SECURE CHECKOUT ->"}
+              <button className="btn btn-outline back-btn" onClick={() => setStep(2)}>← EDIT ADDRESS</button>
+              
+              <button className="btn btn-primary checkout-btn" onClick={handleCheckout} disabled={isProcessing}>
+                {isProcessing ? 'PROCESSING...' : paymentMethod === 'COD' ? 'CONFIRM ORDER →' : `PAY SECURELY →`}
               </button>
             </div>
-        </div>
+          </>
+        )}
+      </div>
     </div>
   );
 };

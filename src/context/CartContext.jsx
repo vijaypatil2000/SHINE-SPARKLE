@@ -1,10 +1,11 @@
-import React, { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState } from 'react';
 
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [wishlist, setWishlist] = useState(new Set());
 
   const addToCart = (product) => {
     setCartItems(prev => {
@@ -14,37 +15,37 @@ export const CartProvider = ({ children }) => {
       }
       return [...prev, { ...product, quantity: 1 }];
     });
-    setIsCartOpen(true); // Open cart automatically when adding item
+    setIsCartOpen(true);
   };
 
-  const removeFromCart = (id) => {
-    setCartItems(prev => prev.filter(item => item.id !== id));
-  };
+  const removeFromCart = (id) => setCartItems(prev => prev.filter(item => item.id !== id));
 
   const updateQuantity = (id, quantity) => {
-    if (quantity <= 0) {
-      removeFromCart(id);
-      return;
-    }
+    if (quantity <= 0) { removeFromCart(id); return; }
     setCartItems(prev => prev.map(item => item.id === id ? { ...item, quantity } : item));
   };
 
   const clearCart = () => setCartItems([]);
 
-  const cartTotal = cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
-  const cartCount = cartItems.reduce((count, item) => count + item.quantity, 0);
+  const toggleWishlist = (id) => {
+    setWishlist(prev => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  };
+
+  const cartTotal = cartItems.reduce((t, item) => t + item.price * item.quantity, 0);
+  const cartCount = cartItems.reduce((t, item) => t + item.quantity, 0);
+  const wishCount = wishlist.size;
 
   return (
     <CartContext.Provider value={{
-      cartItems,
-      addToCart,
-      removeFromCart,
-      updateQuantity,
-      clearCart,
-      cartTotal,
-      cartCount,
-      isCartOpen,
-      setIsCartOpen
+      cartItems, addToCart, removeFromCart, updateQuantity, clearCart,
+      cartTotal, cartCount,
+      isCartOpen, setIsCartOpen,
+      wishlist, toggleWishlist, wishCount,
     }}>
       {children}
     </CartContext.Provider>

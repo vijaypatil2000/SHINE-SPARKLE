@@ -6,27 +6,64 @@
 
 .main-content {
   flex: 1;
-  padding-top: 130px; /* Offset for double-stacked navbar */
   background-color: var(--bg-tertiary);
 }
 
-/* Candere Style Promotional Banner under Navbar */
-.promotional-banner {
-  background-color: #e6f7f6; /* Soft cyan/mint */
-  text-align: center;
-  padding: 0.5rem;
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: #000;
-  border-bottom: 1px solid var(--border-color);
+/* Shop & cart pages need navbar offset */
+.product-showcase,
+.cart-page,
+.coming-soon-page {
+  padding-top: 106px;
 }
 
-.grab-now {
-  background-color: var(--accent-primary);
-  color: white;
-  padding: 0.1rem 0.5rem;
-  border-radius: 2px;
-  font-weight: 700;
-  margin-left: 0.5rem;
-  cursor: pointer;
+/* Coming Soon */
+.coming-soon-page {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-tertiary);
+}
+
+.coming-soon-content {
+  text-align: center;
+  padding: 3rem 2rem;
+  animation: fadeInUp 0.6s ease both;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.coming-soon-icon {
+  font-size: 3rem;
+  color: var(--accent-primary);
+  margin-bottom: 1rem;
+  animation: spin 6s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.coming-soon-content h2 {
+  font-size: 2.5rem;
+  font-weight: 200;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.coming-soon-content p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 0.4rem;
+}
+
+.coming-soon-content strong {
+  color: var(--accent-primary);
 }
