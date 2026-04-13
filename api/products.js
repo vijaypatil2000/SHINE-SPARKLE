@@ -1,15 +1,6 @@
 import { connectToDatabase } from './lib/db.js';
 import { Product } from './lib/models.js';
-
-// Fallback products in case the database is unreachable
-const fallbackProducts = [
-  { id: 1, title: 'Imperial Gold Plated Choker Set', category: 'NECKLACE', price: 199, description: 'A stunning piece of artistry.', image: '/img/IMG_2450.jpg' },
-  { id: 2, title: 'Royal Kundan Studded Long Haram', category: 'NECKLACE', price: 222, description: 'Experience the elegance.', image: '/img/IMG_2452.jpg' },
-  { id: 3, title: 'Heritage Polki Finish Neck Set', category: 'NECKLACE', price: 245, description: 'Timeless addition.', image: '/img/IMG_2455.jpg' },
-  { id: 4, title: 'Antique Meenakari Mala', category: 'NECKLACE', price: 268, description: 'Beautifully detailed.', image: '/img/IMG_2458.jpg' },
-  { id: 17, title: 'Vintage Polki Finish Studs', category: 'EARRINGS', price: 567, description: 'Experience elegance.', image: '/img/IMG_2505.jpg' },
-  { id: 63, title: 'Heritage Matte Gold Bangle', category: 'BANGLES & BRACELETS', price: 875, description: 'Traditional motifs.', image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.37 PM (2).jpeg' },
-];
+import { products as fallbackProducts } from '../src/data/mockData.js';
 
 export default async function handler(req, res) {
   try {
