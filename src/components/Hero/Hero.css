@@ -105,3 +105,16 @@
     max-width: 300px;
   }
 }
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  .hero-actions {
+    width: 100%;
+  }
+  .btn-lg {
+    width: 100%;
+    max-width: 100%;
+  }
+}

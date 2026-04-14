@@ -42,3 +42,16 @@
     gap: 1.5rem;
   }
 }
+
+@media (max-width: 480px) {
+  .product-showcase {
+    padding: 2rem 0;
+  }
+  .showcase-title {
+    font-size: 1.75rem;
+  }
+  .jewelry-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1rem;
+  }
+}
