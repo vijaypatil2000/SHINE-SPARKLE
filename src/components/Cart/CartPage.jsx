@@ -10,6 +10,8 @@ const CartPage = () => {
   const [isProcessing, setIsProcessing] = useState(false);
   const [orderComplete, setOrderComplete] = useState(false);
   const [address, setAddress] = useState({ name: '', email: '', phone: '', street: '', city: '', pincode: '' });
+  const [paymentMethod, setPaymentMethod] = useState('CARD'); // CARD, DEBIT, UPI, COD
+
   
   const loadRazorpaySDK = () => {
     return new Promise((resolve) => {
