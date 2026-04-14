@@ -1,6 +1,5 @@
 import { connectToDatabase } from './lib/db.js';
 import { Product } from './lib/models.js';
-import { products as fallbackProducts } from '../src/data/mockData.js';
 
 export default async function handler(req, res) {
   try {
@@ -10,9 +9,9 @@ export default async function handler(req, res) {
     if (req.method === 'GET') {
       const products = await Product.find({}).sort({ id: 1 });
       
-      // If DB is empty, use fallbacks
+      // Strict database reliance
       if (!products || products.length === 0) {
-        return res.status(200).json(fallbackProducts);
+        return res.status(200).json([]);
       }
       return res.status(200).json(products);
     }
@@ -44,10 +43,7 @@ export default async function handler(req, res) {
 
     return res.status(405).json({ message: 'Method Not Allowed' });
   } catch (error) {
-    console.warn('Backend connection error, using local fallback:', error.message);
-    if (req.method === 'GET') {
-      return res.status(200).json(fallbackProducts);
-    }
+    console.error('Backend connection error:', error.message);
     return res.status(500).json({ message: 'Database Error', error: error.message });
   }
 }
