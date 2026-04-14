@@ -181,11 +181,22 @@
   padding: 1rem;
 }
 
-.delete-overlay-btn {
+.admin-actions-overlay {
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
-  background: rgba(239, 68, 68, 0.9);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.admin-product-card:hover .admin-actions-overlay {
+  opacity: 1;
+}
+
+.edit-overlay-btn, .delete-overlay-btn {
   color: white;
   border: none;
   width: 32px;
@@ -195,12 +206,14 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  opacity: 0;
-  transition: opacity 0.3s;
 }
 
-.admin-product-card:hover .delete-overlay-btn {
-  opacity: 1;
+.edit-overlay-btn {
+  background: rgba(59, 130, 246, 0.9);
+}
+
+.delete-overlay-btn {
+  background: rgba(239, 68, 68, 0.9);
 }
 
 .admin-card-info {
@@ -305,6 +318,44 @@
   letter-spacing: 0.1em;
   margin-top: 1rem;
   cursor: pointer;
+}
+
+.submit-btn:disabled {
+  background: #999;
+  cursor: not-allowed;
+}
+
+.file-upload-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.file-upload-input {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.file-upload-label {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  padding: 0.8rem 1rem !important;
+  color: var(--accent-primary) !important;
+  border: 1px dashed var(--accent-primary) !important;
+  background-color: #fafbfc;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  font-weight: 600 !important;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.file-upload-label:hover {
+  background-color: #f0f4f8;
 }
 
 /* Login */

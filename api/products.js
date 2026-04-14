@@ -35,6 +35,17 @@ export default async function handler(req, res) {
       return res.status(201).json(newProduct);
     }
 
+    if (req.method === 'PUT') {
+      const { id, title, price, category, description, image } = req.body;
+      const updatedProduct = await Product.findOneAndUpdate(
+        { id: Number(id) },
+        { title, price: Number(price), category, description, image },
+        { new: true }
+      );
+      if (!updatedProduct) return res.status(404).json({ message: 'Product not found' });
+      return res.status(200).json(updatedProduct);
+    }
+
     if (req.method === 'DELETE') {
       const { id } = req.query;
       await Product.findOneAndDelete({ id: Number(id) });
