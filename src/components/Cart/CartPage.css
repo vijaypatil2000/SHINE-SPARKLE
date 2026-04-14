@@ -326,7 +326,24 @@ hr { border: none; border-top: 1px solid var(--border-color); margin: 1rem 0; }
 }
 
 @media (max-width: 900px) {
-  .populated-cart-wrapper { flex-direction: column; }
+  .populated-cart-wrapper { flex-direction: column; padding: 1.5rem 1rem; }
   .form-row { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 576px) {
+  .tracker-step span { display: none; }
+  .tracker-line { width: 40px; }
+  .cart-item-row { 
+    flex-wrap: wrap; 
+    gap: 0.75rem; 
+    padding: 1rem; 
+    align-items: flex-start;
+  }
+  .cart-item-row img { width: 60px; height: 60px; }
+  .item-price { margin: 0; margin-top: 0.5rem; }
+  .remove-btn { margin-left: auto; }
+  .cart-summary-section { padding: 1.25rem; }
   .payment-tabs { flex-direction: column; }
+  .gateway-tab { padding: 0.75rem; }
+  .payment-body { padding: 1.5rem 1rem; }
 }
