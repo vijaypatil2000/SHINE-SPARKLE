@@ -8,6 +8,7 @@ const productSchema = new mongoose.Schema({
   image: { type: String },
   category: { type: String },
   rating: { type: Number, default: 0 },
+  tags: [{ type: String }],
 });
 
 // Since Vercel Serverless Functions can boot rapidly in parallel, we need to check if the model already exists
