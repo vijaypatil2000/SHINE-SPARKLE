@@ -15,6 +15,13 @@ const productSchema = new mongoose.Schema({
 const Product = mongoose.models.Product || mongoose.model('Product', productSchema);
 
 const orderSchema = new mongoose.Schema({
+  orderId: { type: String, required: true, unique: true },
+  customer: {
+    name: String,
+    email: String,
+    phone: String,
+    address: String,
+  },
   items: [
     {
       productId: Number,
@@ -24,7 +31,9 @@ const orderSchema = new mongoose.Schema({
     }
   ],
   totalAmount: { type: Number, required: true },
-  status: { type: String, default: 'Pending' },
+  paymentMode: { type: String, required: true }, // 'CARD', 'DEBIT', 'UPI', 'COD'
+  paymentToken: { type: String }, // razorpay order id or payment id
+  status: { type: String, default: 'Pending' }, // 'Pending', 'Shipped', 'Closed'
   createdAt: { type: Date, default: Date.now },
 });
 

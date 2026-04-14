@@ -18,8 +18,12 @@ export default async function handler(req, res) {
     try {
       await connectToDatabase();
       const newOrder = new Order({
+        orderId: `ORD-${Math.floor(Math.random() * 1000000)}`,
+        customer: address,
         items,
-        totalAmount
+        totalAmount,
+        paymentMode: paymentMethod,
+        status: 'Pending'
       });
       await newOrder.save();
       

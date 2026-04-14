@@ -455,3 +455,88 @@
     padding: 2rem 1.5rem;
   }
 }
+
+/* Orders Styling */
+.tab-switcher {
+  display: flex;
+  background: white;
+  border-radius: var(--radius-sm);
+  padding: 0.25rem;
+  border: 1px solid #ddd;
+}
+.admin-tab-btn {
+  padding: 0.5rem 1.25rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.admin-tab-btn.active {
+  background: #1a1a1a;
+  color: white;
+}
+.admin-orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.admin-order-card {
+  background: white;
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+.admin-order-card.shipped { border-left: 5px solid #3b82f6; opacity: 0.9; }
+.admin-order-card.closed { border-left: 5px solid #10b981; opacity: 0.7; }
+.admin-order-card.pending { border-left: 5px solid #ef4444; }
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+.order-header h4 { font-family: var(--font-heading); margin:0; }
+.order-date { font-size: 0.8rem; color: #666; }
+
+.badge-pending { color: #ef4444; font-weight: 700; font-size: 0.8rem; }
+.badge-shipped { color: #3b82f6; font-weight: 700; font-size: 0.8rem; display: flex; align-items:center; gap:0.3rem;}
+.badge-closed { color: #10b981; font-weight: 700; font-size: 0.8rem; display: flex; align-items:center; gap:0.3rem;}
+
+.order-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+.order-customer-info h5, .order-items-info h5 {
+  margin-bottom: 0.8rem; color: #333;
+}
+.order-customer-info p { margin: 0.25rem 0; font-size: 0.85rem; color: #555; }
+.order-items-list { list-style: none; padding: 0; margin: 0; }
+.order-items-list li {
+  display: flex; justify-content: space-between; font-size: 0.85rem;
+  padding: 0.5rem 0; border-bottom: 1px dashed #eee;
+}
+.order-totals {
+  margin-top: 1rem;
+  display: flex; justify-content: space-between; font-size: 0.9rem;
+}
+.order-actions {
+  margin-top: 1.5rem; display: flex; justify-content: flex-end; gap: 1rem;
+}
+.ship-btn {
+  background: #3b82f6; color: white; border: none; padding: 0.6rem 1.25rem;
+  font-weight: 700; font-size: 0.8rem; border-radius: 4px; cursor: pointer;
+}
+.close-order-btn {
+  background: #10b981; color: white; border: none; padding: 0.6rem 1.25rem;
+  font-weight: 700; font-size: 0.8rem; border-radius: 4px; cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .order-details-grid { grid-template-columns: 1fr; }
+}

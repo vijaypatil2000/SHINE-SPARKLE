@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Plus, Trash2, Search, Filter, LogOut, Package, Tag, IndianRupee, Image as ImageIcon, Edit2, UploadCloud } from 'lucide-react';
+import { Plus, Trash2, Search, Filter, LogOut, Package, Tag, IndianRupee, Image as ImageIcon, Edit2, UploadCloud, CheckCircle, Truck } from 'lucide-react';
 import './AdminDashboard.css';
 import { products as mockProducts } from '../../data/mockData';
 
 const AdminDashboard = () => {
   const [products, setProducts] = useState(mockProducts);
+  const [orders, setOrders] = useState([]);
+  const [activeTab, setActiveTab] = useState('PRODUCTS');
+  
   const [syncStatus, setSyncStatus] = useState('OFFLINE (LOCAL)');
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState('');
@@ -23,6 +26,7 @@ const AdminDashboard = () => {
   useEffect(() => {
     if (isAuthenticated) {
       fetchProducts();
+      fetchOrders();
     }
   }, [isAuthenticated]);
 
@@ -40,6 +44,30 @@ const AdminDashboard = () => {
     } catch (err) {
       console.warn('Sync failed. Using professional catalog.');
       setSyncStatus('OFFLINE (LOCAL)');
+    }
+  };
+
+  const fetchOrders = async () => {
+    try {
+      const res = await fetch('/api/orders');
+      if (res.ok) {
+        setOrders(await res.json());
+      }
+    } catch (err) {
+      console.warn('Failed to fetch orders', err);
+    }
+  };
+
+  const updateOrderStatus = async (orderId, status) => {
+    try {
+      const res = await fetch('/api/orders', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ orderId, status })
+      });
+      if (res.ok) fetchOrders();
+    } catch (err) {
+      alert('Failed to update order status.');
     }
   };
 
@@ -183,80 +211,157 @@ const AdminDashboard = () => {
           <span className={`live-badge ${syncStatus.includes('OFFLINE') ? 'offline' : ''}`}>{syncStatus}</span>
         </div>
         <div className="header-right">
-          <button className="add-main-btn" onClick={() => setShowAddForm(true)}>
-            <Plus size={18} /> ADD NEW PRODUCT
-          </button>
+          <div className="tab-switcher">
+            <button className={`admin-tab-btn ${activeTab === 'PRODUCTS' ? 'active' : ''}`} onClick={() => setActiveTab('PRODUCTS')}>
+              PRODUCTS
+            </button>
+            <button className={`admin-tab-btn ${activeTab === 'ORDERS' ? 'active' : ''}`} onClick={() => setActiveTab('ORDERS')}>
+              ORDERS {orders.length > 0 && `(${orders.filter(o => o.status === 'Pending').length})`}
+            </button>
+          </div>
+          
+          {activeTab === 'PRODUCTS' && (
+            <button className="add-main-btn" onClick={() => setShowAddForm(true)}>
+              <Plus size={18} /> ADD PRODUCT
+            </button>
+          )}
           <button className="logout-btn" onClick={() => setIsAuthenticated(false)}>
             <LogOut size={16} />
           </button>
         </div>
       </header>
 
-      <div className="admin-stats">
-        <div className="stat-card">
-          <Package className="stat-icon" />
-          <div className="stat-info">
-            <span className="stat-value">{products.length}</span>
-            <span className="stat-label">Total Listings</span>
-          </div>
-        </div>
-        <div className="stat-card">
-          <Tag className="stat-icon" />
-          <div className="stat-info">
-            <span className="stat-value">{new Set(products.map(p => p.category)).size}</span>
-            <span className="stat-label">Categories</span>
-          </div>
-        </div>
-      </div>
-
-      <div className="admin-controls">
-        <div className="search-box">
-          <Search size={18} />
-          <input 
-            type="text" 
-            placeholder="Search jewelry catalog..." 
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-        </div>
-        <div className="filter-group">
-          {categories.map(cat => (
-            <button 
-              key={cat}
-              className={`filter-tab ${categoryFilter === cat ? 'active' : ''}`}
-              onClick={() => setCategoryFilter(cat)}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      <div className="admin-product-grid">
-        {loading ? (
-          <div className="admin-loader">Synchronizing with Cloud Database...</div>
-        ) : filteredProducts.map(product => (
-          <div key={product.id} className="admin-product-card">
-            <div className="admin-card-img">
-              <img src={product.image} alt="" />
-              <div className="admin-actions-overlay">
-                <button className="edit-overlay-btn" onClick={() => { setEditingProduct(product); setShowEditForm(true); }}>
-                  <Edit2 size={16} />
-                </button>
-                <button className="delete-overlay-btn" onClick={() => handleDelete(product.id)}>
-                  <Trash2 size={16} />
-                </button>
+      {activeTab === 'PRODUCTS' ? (
+        <>
+          <div className="admin-stats">
+            <div className="stat-card">
+              <Package className="stat-icon" />
+              <div className="stat-info">
+                <span className="stat-value">{products.length}</span>
+                <span className="stat-label">Total Listings</span>
               </div>
             </div>
-            <div className="admin-card-info">
-              <span className="admin-card-cat">{product.category}</span>
-              <h3>{product.title}</h3>
-              <p>₹{product.price}</p>
+            <div className="stat-card">
+              <Tag className="stat-icon" />
+              <div className="stat-info">
+                <span className="stat-value">{new Set(products.map(p => p.category)).size}</span>
+                <span className="stat-label">Categories</span>
+              </div>
             </div>
           </div>
-        ))}
-      </div>
 
+          <div className="admin-controls">
+            <div className="search-box">
+              <Search size={18} />
+              <input 
+                type="text" 
+                placeholder="Search jewelry catalog..." 
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+              />
+            </div>
+            <div className="filter-group">
+              {categories.map(cat => (
+                <button 
+                  key={cat}
+                  className={`filter-tab ${categoryFilter === cat ? 'active' : ''}`}
+                  onClick={() => setCategoryFilter(cat)}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="admin-product-grid">
+            {loading ? (
+              <div className="admin-loader">Synchronizing with Cloud Database...</div>
+            ) : filteredProducts.map(product => (
+              <div key={product.id} className="admin-product-card">
+                <div className="admin-card-img">
+                  <img src={product.image} alt="" />
+                  <div className="admin-actions-overlay">
+                    <button className="edit-overlay-btn" onClick={() => { setEditingProduct(product); setShowEditForm(true); }}>
+                      <Edit2 size={16} />
+                    </button>
+                    <button className="delete-overlay-btn" onClick={() => handleDelete(product.id)}>
+                      <Trash2 size={16} />
+                    </button>
+                  </div>
+                </div>
+                <div className="admin-card-info">
+                  <span className="admin-card-cat">{product.category}</span>
+                  <h3>{product.title}</h3>
+                  <p>₹{product.price}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </>
+      ) : (
+        // ORDERS TAB
+        <div className="admin-orders-list">
+          {orders.length === 0 ? (
+            <div className="admin-loader">No active orders found. Wait for customers to place an order.</div>
+          ) : (
+            orders.map(order => (
+              <div key={order.orderId} className={`admin-order-card ${order.status.toLowerCase()}`}>
+                <div className="order-header">
+                  <div>
+                    <h4>{order.orderId}</h4>
+                    <span className="order-date">{new Date(order.createdAt).toLocaleString()}</span>
+                  </div>
+                  <div className="order-status-badge">
+                    {order.status === 'Pending' ? <span className="badge-pending">🚨 ACTION REQUIRED</span> : 
+                     order.status === 'Shipped' ? <span className="badge-shipped"><Truck size={14}/> SHIPPED</span> : 
+                     <span className="badge-closed"><CheckCircle size={14}/> CLOSED</span>}
+                  </div>
+                </div>
+                
+                <div className="order-details-grid">
+                  <div className="order-customer-info">
+                    <h5>Customer Details</h5>
+                    <p><strong>Name:</strong> {order.customer?.name || 'N/A'}</p>
+                    <p><strong>Phone:</strong> {order.customer?.phone || 'N/A'}</p>
+                    <p><strong>Email:</strong> {order.customer?.email || 'N/A'}</p>
+                    <p><strong>Address:</strong> {order.customer?.address || 'N/A'}</p>
+                  </div>
+                  <div className="order-items-info">
+                    <h5>Items Ordered</h5>
+                    <ul className="order-items-list">
+                      {order.items.map((item, idx) => (
+                        <li key={idx}>
+                          <span>{item.quantity}x {item.title}</span>
+                          <span>₹{(item.price * item.quantity).toLocaleString()}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="order-totals">
+                      <div>Mode: <strong>{order.paymentMode}</strong></div>
+                      <div>Total Paid: <strong>₹{order.totalAmount.toLocaleString()}</strong></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="order-actions">
+                  {order.status === 'Pending' && (
+                    <button className="ship-btn" onClick={() => updateOrderStatus(order.orderId, 'Shipped')}>
+                      MARK AS SHIPPED
+                    </button>
+                  )}
+                  {order.status === 'Shipped' && (
+                    <button className="close-order-btn" onClick={() => updateOrderStatus(order.orderId, 'Closed')}>
+                      CLOSE ORDER
+                    </button>
+                  )}
+                </div>
+              </div>
+            ))
+          )}
+        </div>
+      )}
+
+      {/* Adding Add/Edit Modals here ... */}
       {showAddForm && (
         <div className="admin-modal">
           <div className="modal-content">
@@ -326,6 +431,7 @@ const AdminDashboard = () => {
           </div>
         </div>
       )}
+
       {showEditForm && editingProduct && (
         <div className="admin-modal">
           <div className="modal-content">

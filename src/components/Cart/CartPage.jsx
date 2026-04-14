@@ -61,7 +61,10 @@ const CartPage = () => {
           const verifyRes = await fetch('/api/verify-razorpay-payment', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(response),
+            body: JSON.stringify({
+              ...response,
+              orderDetails: { address, items: cartItems, totalAmount: cartTotal, paymentMethod }
+            }),
           });
           if (verifyRes.ok) {
             clearCart(); setOrderComplete(true);
@@ -220,7 +223,10 @@ const CartPage = () => {
               <div className="payment-gateway-container">
                 <div className="payment-tabs">
                   <button className={`gateway-tab ${paymentMethod === 'CARD' ? 'active' : ''}`} onClick={() => setPaymentMethod('CARD')}>
-                    <CreditCard size={18} /> Credit / Debit Card
+                    <CreditCard size={18} /> Credit Card
+                  </button>
+                  <button className={`gateway-tab ${paymentMethod === 'DEBIT' ? 'active' : ''}`} onClick={() => setPaymentMethod('DEBIT')}>
+                    <CreditCard size={18} /> Debit Card
                   </button>
                   <button className={`gateway-tab ${paymentMethod === 'UPI' ? 'active' : ''}`} onClick={() => setPaymentMethod('UPI')}>
                     📱 UPI (QR Code)
@@ -232,7 +238,7 @@ const CartPage = () => {
 
                 <div className="payment-body">
                   {/* SECURE ONLINE UI (Card & UPI) */}
-                  {(paymentMethod === 'CARD' || paymentMethod === 'UPI') && (
+                  {(paymentMethod === 'CARD' || paymentMethod === 'DEBIT' || paymentMethod === 'UPI') && (
                     <div className="gateway-cod-form fade-in">
                       <ShieldCheck size={40} color="#C5A059" style={{marginBottom: '1rem'}} />
                       <h4>Official Razorpay Gateway</h4>
