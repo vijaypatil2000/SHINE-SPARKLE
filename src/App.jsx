@@ -9,6 +9,9 @@ import { CartProvider } from './context/CartContext';
 import AdminDashboard from './components/Admin/AdminDashboard';
 import Footer from './components/Footer/Footer';
 import PromoOfferModal from './components/Promo/PromoOfferModal';
+import WishlistModal from './components/Wishlist/WishlistModal';
+import ImageLightbox from './components/UI/ImageLightbox';
+import { useCart } from './context/CartContext';
 import './App.css';
 
 import { products as mockProducts } from './data/mockData';
@@ -44,6 +47,7 @@ function ShopView({ activeCategory }) {
 }
 
 function App() {
+  const { isWishlistOpen, setIsWishlistOpen } = useCart();
   const [activeCategory, setActiveCategory] = useState('ALL');
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [view, setView] = useState('home');
@@ -64,7 +68,6 @@ function App() {
 
   return (
     <Router>
-      <CartProvider>
         <div className="app-container">
           <Navbar
             activeCategory={activeCategory}
@@ -93,8 +96,25 @@ function App() {
           <Footer />
           <PromoOfferModal />
           <CartModal />
+          <WishlistModal isOpen={isWishlistOpen} onClose={() => setIsWishlistOpen(false)} />
+          <ImageLightbox />
+          
+          {/* Global Background Deco */}
+          <div className="app-bg-decor">
+            <div className="luxury-overlay" />
+            {[...Array(15)].map((_, i) => (
+              <div 
+                key={i} 
+                className="bg-sparkle" 
+                style={{ 
+                  left: `${Math.random() * 100}%`, 
+                  animationDelay: `${Math.random() * 20}s`,
+                  opacity: Math.random() * 0.5
+                }} 
+              />
+            ))}
+          </div>
         </div>
-      </CartProvider>
     </Router>
   );
 }

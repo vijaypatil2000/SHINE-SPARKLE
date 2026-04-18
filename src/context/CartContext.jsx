@@ -5,7 +5,9 @@ const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isWishlistOpen, setIsWishlistOpen] = useState(false);
   const [wishlist, setWishlist] = useState(new Set());
+  const [lightboxImage, setLightboxImage] = useState(null); // { url, title }
 
   const addToCart = (product) => {
     setCartItems(prev => {
@@ -45,7 +47,9 @@ export const CartProvider = ({ children }) => {
       cartItems, addToCart, removeFromCart, updateQuantity, clearCart,
       cartTotal, cartCount,
       isCartOpen, setIsCartOpen,
+      isWishlistOpen, setIsWishlistOpen,
       wishlist, toggleWishlist, wishCount,
+      lightboxImage, setLightboxImage,
     }}>
       {children}
     </CartContext.Provider>

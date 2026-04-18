@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Heart, Star, ShoppingBag } from 'lucide-react';
+import { Heart, Star, ShoppingBag, ZoomIn } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
 import './ProductCard.css';
 
 const ProductCard = ({ product }) => {
-  const { addToCart, toggleWishlist, wishlist } = useCart();
+  const { addToCart, toggleWishlist, wishlist, setLightboxImage } = useCart();
   const [added, setAdded] = useState(false);
   const [showDesc, setShowDesc] = useState(false);
   const wished = wishlist.has(product.id);
@@ -36,12 +36,16 @@ const ProductCard = ({ product }) => {
       onMouseLeave={() => setShowDesc(false)}
       onClick={() => setShowDesc(v => !v)}
     >
-      <div className="jewel-image-box">
+      <div className="jewel-image-box" onClick={() => setLightboxImage({ url: product.image, title: product.title })}>
         <button className={`wishlist-icon ${wished ? 'wished' : ''}`} onClick={handleWish} aria-label="Wishlist">
           <Heart size={16} fill={wished ? '#ef4444' : 'none'} color={wished ? '#ef4444' : 'currentColor'} />
         </button>
 
         <img src={product.image} alt={product.title} loading="lazy" />
+        
+        <div className="maximize-hint">
+          <ZoomIn size={18} />
+        </div>
 
         <div className={`desc-overlay ${showDesc ? 'visible' : ''}`}>
           <p className="desc-text">{product.description}</p>

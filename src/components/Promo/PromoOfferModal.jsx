@@ -5,6 +5,7 @@ import './PromoOfferModal.css';
 const PromoOfferModal = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isFlipped, setIsFlipped] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     // Only show if they haven't seen it in this session
@@ -28,15 +29,16 @@ const PromoOfferModal = () => {
     }
   };
 
-  const copyCode = () => {
-    navigator.clipboard.writeText('FIRST10');
-    // We could add a toast here, but simple visual feedback suffices
-    document.getElementById('copyBtn').textContent = 'COPIED!';
-    setTimeout(() => {
-      if(document.getElementById('copyBtn')) {
-        document.getElementById('copyBtn').textContent = 'COPY CODE';
-      }
-    }, 2000);
+  const copyCode = async () => {
+    try {
+      await navigator.clipboard.writeText('FIRST10');
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy code:', err);
+      // Fallback: alert the user or show the code more prominently
+      alert('Could not copy automatically. Please copy the code: FIRST10');
+    }
   };
 
   if (!isOpen) return null;
@@ -70,11 +72,16 @@ const PromoOfferModal = () => {
               <div className="card-border">
                 <h2>15% OFF</h2>
                 <p>On your entire first order</p>
-                <div className="promo-code-box">
-                  <span className="code">FIRST10</span>
+                <div className="promo-code-box" style={{ userSelect: isFlipped ? 'text' : 'none' }}>
+                  <span className="code">{isFlipped ? 'FIRST10' : '*******'}</span>
                 </div>
-                <button id="copyBtn" className="btn btn-primary btn-copy" onClick={(e) => { e.stopPropagation(); copyCode(); }}>
-                  COPY CODE
+                <button 
+                  id="copyBtn" 
+                  className={`btn btn-primary btn-copy ${!isFlipped ? 'disabled' : ''}`} 
+                  onClick={(e) => { e.stopPropagation(); if(isFlipped) copyCode(); }}
+                  disabled={!isFlipped}
+                >
+                  {isFlipped ? (copied ? 'COPIED!' : 'COPY CODE') : 'LOCK'}
                 </button>
               </div>
             </div>

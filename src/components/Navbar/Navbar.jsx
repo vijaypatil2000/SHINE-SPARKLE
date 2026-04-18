@@ -6,7 +6,7 @@ import { products } from '../../data/mockData';
 import './Navbar.css';
 
 const Navbar = ({ activeCategory, setActiveCategory, onGoHome, isDarkMode, toggleTheme }) => {
-  const { cartCount, setIsCartOpen, wishCount } = useCart();
+  const { cartCount, setIsCartOpen, wishCount, setIsWishlistOpen } = useCart();
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [showSearch, setShowSearch] = useState(false);
@@ -81,7 +81,7 @@ const Navbar = ({ activeCategory, setActiveCategory, onGoHome, isDarkMode, toggl
               <div className="utility-item" onClick={() => { setAuthMode('login'); setShowAuth(true); }}>
                 <User size={18} />
               </div>
-              <div className="utility-item">
+              <div className="utility-item" onClick={() => setIsWishlistOpen(true)}>
                 <Heart size={18} />
                 <span className="badge">{wishCount}</span>
               </div>

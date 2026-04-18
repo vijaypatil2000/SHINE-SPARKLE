@@ -6,7 +6,7 @@ const SpinAndWinModal = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [rotated, setRotated] = useState(false);
   const [spinResult, setSpinResult] = useState('');
-  
+  const [copied, setCopied] = useState(false);
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsOpen(true);
@@ -28,8 +28,19 @@ const SpinAndWinModal = () => {
     
     // Simulate API call and wheel spin duration
     setTimeout(() => {
-      setSpinResult('Congratulations! You won ₹500 Wallet Cash!');
+      setSpinResult('₹500 Wallet Cash!');
     }, 4000); // 4 seconds matches CSS animation
+  };
+
+  const copyResultCode = async () => {
+    try {
+      await navigator.clipboard.writeText('SHINE500');
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy spin code:', err);
+      alert('Could not copy automatically. Please copy the code: SHINE500');
+    }
   };
 
   if (!isOpen) return null;
@@ -58,7 +69,14 @@ const SpinAndWinModal = () => {
             
             {spinResult && (
               <div className="spin-result-badge bounce-in">
-                {spinResult}
+                <p>Congratulations!</p>
+                <h3>{spinResult}</h3>
+                <div className="result-code-box">
+                  <span className="code">SHINE500</span>
+                  <button id="spinCopyBtn" className="spin-copy-btn" onClick={copyResultCode}>
+                    {copied ? 'COPIED!' : 'COPY CODE'}
+                  </button>
+                </div>
               </div>
             )}
           </div>

@@ -1,5 +1,6 @@
-import React, { useEffect, useRef } from 'react';
-import { Sparkles, Truck, ShieldCheck, RefreshCw, Star, ChevronDown, ArrowRight } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Sparkles, Truck, ShieldCheck, RefreshCw, Star, ChevronDown, ArrowRight, Gem, Zap, Circle } from 'lucide-react';
+import { useCart } from '../../context/CartContext';
 import { products } from '../../data/mockData';
 import './HomePage.css';
 
@@ -21,7 +22,20 @@ const testimonials = [
 const featuredProducts = products.filter(p => p.tags?.includes('BESTSELLERS')).slice(0, 6);
 
 const HomePage = ({ onShopNow, onCategory }) => {
+  const { setLightboxImage } = useCart();
   const homeRef = useRef(null);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMousePos({
+        x: (e.clientX / window.innerWidth - 0.5) * 40,
+        y: (e.clientY / window.innerHeight - 0.5) * 40,
+      });
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -43,6 +57,17 @@ const HomePage = ({ onShopNow, onCategory }) => {
       {/* ── Hero ── */}
       <section className="hero-section">
         <div className="hero-bg-overlay" />
+        
+        {/* Floating Interactive Elements */}
+        <div className="hero-floating-elements" style={{ transform: `translate(${mousePos.x}px, ${mousePos.y}px)` }}>
+          <div className="f-element el-1"><Gem size={32} /></div>
+          <div className="f-element el-2"><img src="/img/IMG_2450.jpg" alt="ring" className="f-img" /></div>
+          <div className="f-element el-3"><Circle size={16} fill="white" /></div>
+          <div className="f-element el-4"><img src="/img/IMG_2500.jpg" alt="earring" className="f-img" /></div>
+          <div className="f-element el-5"><Sparkles size={18} /></div>
+          <div className="f-element el-6"><img src="/img/IMG_2537.jpg" alt="pendant" className="f-img" /></div>
+        </div>
+
         <div className="hero-content">
           <p className="hero-eyebrow">✦ LIFESTYLE JEWELLERY</p>
           <h1 className="hero-title">
@@ -94,14 +119,14 @@ const HomePage = ({ onShopNow, onCategory }) => {
           </div>
           <div className="home-products-grid animate-on-scroll">
             {featuredProducts.map(p => (
-              <div key={p.id} className="home-product-card" onClick={onShopNow}>
-                <div className="home-product-img">
+              <div key={p.id} className="home-product-card">
+                <div className="home-product-img" onClick={() => setLightboxImage({ url: p.image, title: p.title })}>
                   <img src={p.image} alt={p.title} loading="lazy" />
                   <div className="home-product-overlay">
-                    <span>View Details</span>
+                    <span>Enlarge Image</span>
                   </div>
                 </div>
-                <div className="home-product-info">
+                <div className="home-product-info" onClick={onShopNow}>
                   <p className="home-product-title">{p.title}</p>
                   <p className="home-product-price">₹{p.price.toLocaleString('en-IN')}</p>
                 </div>
@@ -121,9 +146,13 @@ const HomePage = ({ onShopNow, onCategory }) => {
               { label: 'Solitaires', cat: 'SOLITAIRES', img: '/img/IMG_2500.jpg' },
               { label: 'Gift Sets', cat: 'GIFTS', img: '/img/IMG_2537.jpg' },
             ].map((c, i) => (
-              <div key={i} className="category-tile" onClick={() => onCategory(c.cat)}>
-                <img src={c.img} alt={c.label} />
-                <div className="category-tile-overlay">
+              <div key={i} className="category-tile">
+                <img 
+                  src={c.img} 
+                  alt={c.label} 
+                  onClick={() => setLightboxImage({ url: c.img, title: c.label })}
+                />
+                <div className="category-tile-overlay" onClick={() => onCategory(c.cat)}>
                   <span>{c.label}</span>
                   <ArrowRight size={16} />
                 </div>
