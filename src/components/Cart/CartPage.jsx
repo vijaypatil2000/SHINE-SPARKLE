@@ -10,9 +10,29 @@ const CartPage = () => {
   const [isProcessing, setIsProcessing] = useState(false);
   const [orderComplete, setOrderComplete] = useState(false);
   const [address, setAddress] = useState({ name: '', email: '', phone: '', street: '', city: '', pincode: '' });
+  const [addressErrors, setAddressErrors] = useState({});
   const [paymentMethod, setPaymentMethod] = useState('UPI'); // UPI, COD
+  const [isQrRevealed, setIsQrRevealed] = useState(false);
+  const [paymentScreenshot, setPaymentScreenshot] = useState(null);
 
-  
+  const validateAddress = () => {
+    const errors = {};
+    if (address.name.trim().length < 3) errors.name = "Name must be at least 3 characters.";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(address.email)) errors.email = "Enter a valid email address.";
+    if (!/^[6-9]\d{9}$/.test(address.phone)) errors.phone = "Enter a valid 10-digit Indian mobile number.";
+    if (address.street.trim().length < 5) errors.street = "Street address must be at least 5 characters.";
+    if (address.city.trim().length < 3) errors.city = "City must be at least 3 characters.";
+    if (!/^[1-9][0-9]{5}$/.test(address.pincode)) errors.pincode = "Enter a valid 6-digit pincode.";
+    setAddressErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+
+  const handleContinueToPayment = () => {
+    if (validateAddress()) {
+      setStep(3);
+    }
+  };
+
   const handleCheckout = async () => {
     setIsProcessing(true);
     await new Promise(r => setTimeout(r, 1500));
@@ -107,42 +127,46 @@ const CartPage = () => {
                 <div className="form-group">
                   <label>Full Name</label>
                   <input type="text" placeholder="Your full name" value={address.name}
-                    onChange={e => setAddress(a => ({ ...a, name: e.target.value }))} required />
+                    onChange={e => { setAddress(a => ({ ...a, name: e.target.value })); setAddressErrors(err => ({...err, name: ''})); }} required />
+                  {addressErrors.name && <span className="field-error">{addressErrors.name}</span>}
                 </div>
                 <div className="form-group">
                   <label>Email Address</label>
                   <input type="email" placeholder="you@example.com" value={address.email}
-                    onChange={e => setAddress(a => ({ ...a, email: e.target.value }))} required />
+                    onChange={e => { setAddress(a => ({ ...a, email: e.target.value })); setAddressErrors(err => ({...err, email: ''})); }} required />
+                  {addressErrors.email && <span className="field-error">{addressErrors.email}</span>}
                 </div>
               </div>
               <div className="form-group">
                 <label>Phone Number</label>
-                <input type="tel" placeholder="+91 XXXXX XXXXX" value={address.phone}
-                  onChange={e => setAddress(a => ({ ...a, phone: e.target.value }))} required />
+                <input type="tel" placeholder="10-digit mobile number" value={address.phone}
+                  onChange={e => { setAddress(a => ({ ...a, phone: e.target.value })); setAddressErrors(err => ({...err, phone: ''})); }} required />
+                {addressErrors.phone && <span className="field-error">{addressErrors.phone}</span>}
               </div>
               <div className="form-group">
                 <label>Street Address</label>
                 <input type="text" placeholder="House no., Street, Area" value={address.street}
-                  onChange={e => setAddress(a => ({ ...a, street: e.target.value }))} required />
+                  onChange={e => { setAddress(a => ({ ...a, street: e.target.value })); setAddressErrors(err => ({...err, street: ''})); }} required />
+                {addressErrors.street && <span className="field-error">{addressErrors.street}</span>}
               </div>
               <div className="form-row">
                 <div className="form-group">
                   <label>City</label>
                   <input type="text" placeholder="City" value={address.city}
-                    onChange={e => setAddress(a => ({ ...a, city: e.target.value }))} required />
+                    onChange={e => { setAddress(a => ({ ...a, city: e.target.value })); setAddressErrors(err => ({...err, city: ''})); }} required />
+                  {addressErrors.city && <span className="field-error">{addressErrors.city}</span>}
                 </div>
                 <div className="form-group">
                   <label>Pincode</label>
                   <input type="text" placeholder="6-digit pincode" maxLength={6} value={address.pincode}
-                    onChange={e => setAddress(a => ({ ...a, pincode: e.target.value }))} required />
+                    onChange={e => { setAddress(a => ({ ...a, pincode: e.target.value })); setAddressErrors(err => ({...err, pincode: ''})); }} required />
+                  {addressErrors.pincode && <span className="field-error">{addressErrors.pincode}</span>}
                 </div>
               </div>
             </div>
             <div className="step-footer">
               <button className="btn btn-outline" onClick={() => setStep(1)}>← BACK</button>
-              <button className="btn btn-primary"
-                disabled={!address.name || !address.email || !address.phone || !address.street || !address.city || !address.pincode}
-                onClick={() => setStep(3)}>
+              <button className="btn btn-primary" onClick={handleContinueToPayment}>
                 CONTINUE TO PAYMENT →
               </button>
             </div>
@@ -170,11 +194,31 @@ const CartPage = () => {
                   {paymentMethod === 'UPI' && (
                     <div className="gateway-cod-form fade-in" style={{textAlign: 'center'}}>
                       <h4>Scan to Pay via PhonePe / GPay</h4>
-                      <div className="qr-code-placeholder" style={{ margin: '1rem auto', padding: '1rem', border: '2px dashed #C5A059', display: 'inline-block', borderRadius: '8px' }}>
-                         <img src="/img/phonepe_qr.jpeg" alt="PhonePe QR Code" style={{ maxWidth: '200px', display: 'block' }} onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block'; }} />
-                         <div style={{ display: 'none', padding: '2rem', background: '#f8f8f8', color: '#555' }}>[QR Code Image Placeholder]</div>
+                      
+                      <div className={`qr-wrapper ${isQrRevealed ? 'revealed' : ''}`} onClick={() => setIsQrRevealed(true)}>
+                         <img src="/img/phonepe_qr.jpeg" alt="PhonePe QR Code" className="qr-image" onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block'; }} />
+                         <div className="qr-placeholder" style={{ display: 'none', padding: '2rem', background: '#f8f8f8', color: '#555' }}>[QR Code Image Placeholder]</div>
+                         
+                         {!isQrRevealed && (
+                           <div className="qr-overlay">
+                             <ShieldCheck size={32} color="#fff" />
+                             <span>Click to Reveal QR Code</span>
+                           </div>
+                         )}
                       </div>
-                      <p style={{fontSize: '0.9rem', color: '#666'}}>Scan the QR code with your UPI app. After payment, click "I Have Paid".</p>
+                      <p style={{fontSize: '0.9rem', color: '#666', marginBottom: '1.5rem'}}>Scan the QR code with your UPI app.</p>
+                      
+                      {isQrRevealed && (
+                        <div className="screenshot-upload-box fade-in-up">
+                          <label className="upload-label">
+                            Upload Payment Screenshot
+                            <input type="file" accept="image/*" onChange={(e) => setPaymentScreenshot(e.target.files[0])} />
+                          </label>
+                          {paymentScreenshot && (
+                            <p className="screenshot-filename">Attached: {paymentScreenshot.name}</p>
+                          )}
+                        </div>
+                      )}
                     </div>
                   )}
 
@@ -214,7 +258,11 @@ const CartPage = () => {
               
               <button className="btn btn-outline back-btn" onClick={() => setStep(2)}>← EDIT ADDRESS</button>
               
-              <button className="btn btn-primary checkout-btn" onClick={handleCheckout} disabled={isProcessing}>
+              <button 
+                className="btn btn-primary checkout-btn" 
+                onClick={handleCheckout} 
+                disabled={isProcessing || (paymentMethod === 'UPI' && !paymentScreenshot)}
+              >
                 {isProcessing ? 'PROCESSING...' : paymentMethod === 'COD' ? 'CONFIRM ORDER →' : `I HAVE PAID →`}
               </button>
             </div>

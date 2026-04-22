@@ -126,6 +126,7 @@
   transition: border-color 0.2s;
 }
 .form-group input:focus { border-color: var(--accent-primary); }
+.field-error { color: #ef4444; font-size: 0.75rem; margin-top: 0.2rem; display: block; animation: fadeIn 0.3s ease; }
 
 /* Address preview */
 .address-preview {
@@ -261,16 +262,78 @@ hr { border: none; border-top: 1px solid var(--border-color); margin: 1rem 0; }
   animation: fadeIn 0.4s ease-out;
 }
 
-.qr-container {
-  padding: 1rem;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+.qr-wrapper {
+  position: relative;
   display: inline-block;
+  margin: 1rem auto;
+  padding: 1rem;
+  border: 2px dashed var(--accent-primary);
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+.qr-wrapper:hover { transform: scale(1.02); }
+
+.qr-image {
+  max-width: 200px;
+  display: block;
+  filter: blur(8px);
+  transition: filter 0.5s ease;
 }
 
-.qr-container img {
-  display: block;
+.qr-wrapper.revealed .qr-image {
+  filter: blur(0);
+}
+
+.qr-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(2px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 0.9rem;
+  gap: 0.5rem;
+  transition: opacity 0.3s;
+}
+
+.screenshot-upload-box {
+  margin-top: 1rem;
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--bg-tertiary);
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.upload-label {
+  display: inline-block;
+  padding: 0.8rem 1.2rem;
+  background: var(--accent-primary);
+  color: var(--bg-primary);
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: opacity 0.2s;
+}
+.upload-label:hover { opacity: 0.9; }
+.upload-label input[type="file"] { display: none; }
+
+.screenshot-filename {
+  margin-top: 0.8rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  word-break: break-all;
 }
 
 .upi-instructions h4 {
