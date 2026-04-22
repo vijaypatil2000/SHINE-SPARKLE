@@ -35,10 +35,28 @@ const CartPage = () => {
 
   const handleCheckout = async () => {
     setIsProcessing(true);
-    await new Promise(r => setTimeout(r, 1500));
-    clearCart(); 
-    setOrderComplete(true);
-    setIsProcessing(false);
+    try {
+      const res = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          items: cartItems,
+          totalAmount: cartTotal,
+          address,
+          paymentMethod
+        }),
+      });
+      if (!res.ok) {
+        throw new Error("Failed to place order on server");
+      }
+      clearCart(); 
+      setOrderComplete(true);
+    } catch (error) {
+      console.error("Checkout Error:", error);
+      alert("Failed to place order. Please try again.");
+    } finally {
+      setIsProcessing(false);
+    }
   };
 
   if (orderComplete) return (
