@@ -6,18 +6,25 @@ export default async function handler(req, res) {
   }
 
   const { amount } = req.body;
+  
   if (!amount) {
     return res.status(400).json({ message: 'Amount is required' });
   }
 
+  const amountInPaise = Math.round(amount * 100);
+
+  if (amountInPaise < 100) {
+    return res.status(400).json({ message: 'Amount must be at least ₹1 (100 paise)' });
+  }
+
   try {
     const razorpay = new Razorpay({
-      key_id: process.env.RAZORPAY_KEY_ID || 'rzp_test_mock_id',
-      key_secret: process.env.RAZORPAY_KEY_SECRET || 'mock_secret',
+      key_id: process.env.RAZORPAY_KEY_ID,
+      key_secret: process.env.RAZORPAY_KEY_SECRET,
     });
 
     const options = {
-      amount: Math.round(amount * 100), // Razorpay expects amount in paise
+      amount: amountInPaise,
       currency: "INR",
       receipt: `receipt_order_${Math.floor(Math.random() * 100000)}`,
     };
@@ -31,6 +38,9 @@ export default async function handler(req, res) {
     return res.status(200).json(order);
   } catch (error) {
     console.error('Error creating Razorpay order:', error);
+    if (error.statusCode === 401) {
+       return res.status(401).json({ message: 'Razorpay authentication failed. Check API keys.' });
+    }
     return res.status(500).json({ message: error.message || 'Internal Server Error', error });
   }
 }

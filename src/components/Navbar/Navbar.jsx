@@ -12,9 +12,6 @@ const Navbar = ({ activeCategory, setActiveCategory, onGoHome, isDarkMode, toggl
   const [showSearch, setShowSearch] = useState(false);
   const [showAuth, setShowAuth] = useState(false);
   const [authMode, setAuthMode] = useState('login');
-  const [showTracking, setShowTracking] = useState(false);
-  const [trackingId, setTrackingId] = useState('');
-  const [trackingResult, setTrackingResult] = useState(null);
   const searchRef = useRef(null);
 
   const categories = ['ALL', 'BESTSELLERS', 'NEW ARRIVALS', 'NECKLACE', 'EARRINGS', 'RINGS', 'BANGLES & BRACELETS', 'SOLITAIRES', 'GIFTS', 'OFFERS'];
@@ -35,28 +32,9 @@ const Navbar = ({ activeCategory, setActiveCategory, onGoHome, isDarkMode, toggl
     return () => document.removeEventListener('mousedown', handler);
   }, []);
 
-  const handleTrack = (e) => {
-    e.preventDefault();
-    if (!trackingId.trim()) return;
-    // Simulate tracking result
-    setTrackingResult({
-      id: trackingId.toUpperCase(),
-      status: 'In Transit',
-      eta: '2–3 business days',
-      steps: [
-        { label: 'Order Placed', done: true },
-        { label: 'Processing', done: true },
-        { label: 'Shipped', done: true },
-        { label: 'Out for Delivery', done: false },
-        { label: 'Delivered', done: false },
-      ],
-    });
-  };
-
   const handleAuthSubmit = (e) => {
     e.preventDefault();
     setShowAuth(false);
-    setTrackingResult(null);
   };
 
   return (
@@ -65,9 +43,7 @@ const Navbar = ({ activeCategory, setActiveCategory, onGoHome, isDarkMode, toggl
         {/* Top Bar */}
         <div className="top-utility-bar">
           <div className="container utility-content">
-            <div className="utility-left" onClick={() => setShowTracking(true)}>
-              <Package size={14} /> ORDER TRACKING
-            </div>
+            <div className="utility-left"></div>
             <div className="utility-center">
               <Link to="/" className="brand-logo" onClick={onGoHome}>
                 <img src="/img/brand_logo.png" alt="SHINE & SPARKLE" className="navbar-logo-img" title="SHINE & SPARKLE" />
@@ -195,42 +171,7 @@ const Navbar = ({ activeCategory, setActiveCategory, onGoHome, isDarkMode, toggl
         </div>
       )}
 
-      {/* Order Tracking Modal */}
-      {showTracking && (
-        <div className="modal-overlay" onClick={() => { setShowTracking(false); setTrackingResult(null); setTrackingId(''); }}>
-          <div className="login-modal tracking-modal" onClick={e => e.stopPropagation()}>
-            <button className="modal-close" onClick={() => { setShowTracking(false); setTrackingResult(null); setTrackingId(''); }}><X size={20} /></button>
-            <h2>Track Your Order</h2>
-            <p className="login-sub">Enter your order ID to check status</p>
-            <form onSubmit={handleTrack}>
-              <input
-                type="text"
-                placeholder="Order ID (e.g. ORD-12345)"
-                value={trackingId}
-                onChange={e => setTrackingId(e.target.value)}
-                required
-                className="login-input"
-              />
-              <button type="submit" className="btn btn-primary login-btn">TRACK ORDER</button>
-            </form>
-
-            {trackingResult && (
-              <div className="tracking-result">
-                <p className="tracking-id">Order <strong>#{trackingResult.id}</strong></p>
-                <p className="tracking-status">{trackingResult.status} · ETA: {trackingResult.eta}</p>
-                <div className="tracking-steps">
-                  {trackingResult.steps.map((s, i) => (
-                    <div key={i} className={`tracking-step ${s.done ? 'done' : ''}`}>
-                      <div className="step-dot" />
-                      <span>{s.label}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-      )}
+      {/* Order Tracking Modal Removed */}
     </>
   );
 };

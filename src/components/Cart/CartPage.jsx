@@ -10,81 +10,14 @@ const CartPage = () => {
   const [isProcessing, setIsProcessing] = useState(false);
   const [orderComplete, setOrderComplete] = useState(false);
   const [address, setAddress] = useState({ name: '', email: '', phone: '', street: '', city: '', pincode: '' });
-  const [paymentMethod, setPaymentMethod] = useState('CARD'); // CARD, DEBIT, UPI, COD
+  const [paymentMethod, setPaymentMethod] = useState('UPI'); // UPI, COD
 
   
-  const loadRazorpaySDK = () => {
-    return new Promise((resolve) => {
-      if (document.getElementById('razorpay-sdk')) return resolve(true);
-      const script = document.createElement('script');
-      script.id = 'razorpay-sdk';
-      script.src = 'https://checkout.razorpay.com/v1/checkout.js';
-      script.onload = () => resolve(true);
-      script.onerror = () => resolve(false);
-      document.body.appendChild(script);
-    });
-  };
-
   const handleCheckout = async () => {
-    if (paymentMethod === 'COD') {
-      setIsProcessing(true);
-      await new Promise(r => setTimeout(r, 1500));
-      clearCart(); setOrderComplete(true);
-      setIsProcessing(false);
-      return;
-    }
-
     setIsProcessing(true);
-    const isLoaded = await loadRazorpaySDK();
-    if (!isLoaded) {
-      alert("Razorpay SDK failed to load. Are you offline?");
-      setIsProcessing(false); return;
-    }
-
-    try {
-      const res = await fetch('/api/create-razorpay-order', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ amount: cartTotal }),
-      });
-      const order = await res.json();
-      if (!res.ok || !order.id) throw new Error(order.message || "Order creation failed");
-
-      const options = {
-        key: import.meta.env.VITE_RAZORPAY_KEY_ID || 'rzp_test_mock_id',
-        amount: order.amount,
-        currency: order.currency,
-        name: "SHINE & SPARKLE",
-        description: "Luxury Jewelry Purchase",
-        order_id: order.id,
-        prefill: { name: address.name, email: address.email, contact: address.phone },
-        theme: { color: "#C5A059" },
-        handler: async function (response) {
-          const verifyRes = await fetch('/api/verify-razorpay-payment', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              ...response,
-              orderDetails: { address, items: cartItems, totalAmount: cartTotal, paymentMethod }
-            }),
-          });
-          if (verifyRes.ok) {
-            clearCart(); setOrderComplete(true);
-          } else {
-            alert('Payment security verification failed.');
-          }
-        }
-      };
-
-      const paymentObject = new window.Razorpay(options);
-      paymentObject.on('payment.failed', function (response) {
-        alert("Payment Failed: " + response.error.description);
-      });
-      paymentObject.open();
-    } catch (err) {
-      console.error(err);
-      alert("Could not initialize Razorpay checkout. Please verify environment keys.");
-    }
+    await new Promise(r => setTimeout(r, 1500));
+    clearCart(); 
+    setOrderComplete(true);
     setIsProcessing(false);
   };
 
@@ -94,7 +27,7 @@ const CartPage = () => {
         <CheckCircle size={90} color="#22c55e" />
         <h2>Order Placed!</h2>
         <p>Thank you for shopping with SHINE & SPARKLE.</p>
-        <p style={{ fontSize: '0.85rem', marginTop: '0.25rem' }}>Your payment via {paymentMethod === 'CARD' ? 'Credit Card' : paymentMethod === 'UPI' ? 'UPI' : 'Cash on Delivery'} was successful.</p>
+        <p style={{ fontSize: '0.85rem', marginTop: '0.25rem' }}>Your payment via {paymentMethod === 'UPI' ? 'UPI' : 'Cash on Delivery'} was successful.</p>
         <Link to="/" className="btn btn-primary shop-now-btn">CONTINUE SHOPPING</Link>
       </div>
     </div>
@@ -224,12 +157,6 @@ const CartPage = () => {
               
               <div className="payment-gateway-container">
                 <div className="payment-tabs">
-                  <button className={`gateway-tab ${paymentMethod === 'CARD' ? 'active' : ''}`} onClick={() => setPaymentMethod('CARD')}>
-                    <CreditCard size={18} /> Credit Card
-                  </button>
-                  <button className={`gateway-tab ${paymentMethod === 'DEBIT' ? 'active' : ''}`} onClick={() => setPaymentMethod('DEBIT')}>
-                    <CreditCard size={18} /> Debit Card
-                  </button>
                   <button className={`gateway-tab ${paymentMethod === 'UPI' ? 'active' : ''}`} onClick={() => setPaymentMethod('UPI')}>
                     📱 UPI (QR Code)
                   </button>
@@ -239,12 +166,15 @@ const CartPage = () => {
                 </div>
 
                 <div className="payment-body">
-                  {/* SECURE ONLINE UI (Card & UPI) */}
-                  {(paymentMethod === 'CARD' || paymentMethod === 'DEBIT' || paymentMethod === 'UPI') && (
-                    <div className="gateway-cod-form fade-in">
-                      <ShieldCheck size={40} color="#C5A059" style={{marginBottom: '1rem'}} />
-                      <h4>Official Razorpay Gateway</h4>
-                      <p>Click "Pay Securely" to launch the official, encrypted Razorpay terminal which natively supports all {paymentMethod === 'UPI' ? 'UPI QR Codes' : 'Credit and Debit Cards'}.</p>
+                  {/* UPI UI */}
+                  {paymentMethod === 'UPI' && (
+                    <div className="gateway-cod-form fade-in" style={{textAlign: 'center'}}>
+                      <h4>Scan to Pay via PhonePe / GPay</h4>
+                      <div className="qr-code-placeholder" style={{ margin: '1rem auto', padding: '1rem', border: '2px dashed #C5A059', display: 'inline-block', borderRadius: '8px' }}>
+                         <img src="/img/phonepe_qr.jpeg" alt="PhonePe QR Code" style={{ maxWidth: '200px', display: 'block' }} onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block'; }} />
+                         <div style={{ display: 'none', padding: '2rem', background: '#f8f8f8', color: '#555' }}>[QR Code Image Placeholder]</div>
+                      </div>
+                      <p style={{fontSize: '0.9rem', color: '#666'}}>Scan the QR code with your UPI app. After payment, click "I Have Paid".</p>
                     </div>
                   )}
 
@@ -285,7 +215,7 @@ const CartPage = () => {
               <button className="btn btn-outline back-btn" onClick={() => setStep(2)}>← EDIT ADDRESS</button>
               
               <button className="btn btn-primary checkout-btn" onClick={handleCheckout} disabled={isProcessing}>
-                {isProcessing ? 'PROCESSING...' : paymentMethod === 'COD' ? 'CONFIRM ORDER →' : `PAY SECURELY →`}
+                {isProcessing ? 'PROCESSING...' : paymentMethod === 'COD' ? 'CONFIRM ORDER →' : `I HAVE PAID →`}
               </button>
             </div>
           </>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Mail, Phone, Diamond } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 const Footer = () => {
@@ -45,11 +46,10 @@ const Footer = () => {
         <div className="footer-section">
           <h3>Customer Care</h3>
           <ul className="footer-links">
-            <li><a href="#">Track Order</a></li>
-            <li><a href="#">Shipping Policy</a></li>
-            <li><a href="#">Returns & Exchanges</a></li>
-            <li><a href="#">Terms of Use</a></li>
-            <li><a href="#">Privacy Policy</a></li>
+            <li><Link to="/policy/shipping">Shipping Policy</Link></li>
+            <li><Link to="/policy/returns">Returns & Exchanges</Link></li>
+            <li><Link to="/policy/terms">Terms of Use</Link></li>
+            <li><Link to="/policy/privacy">Privacy Policy</Link></li>
           </ul>
         </div>
 

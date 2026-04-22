@@ -11,6 +11,7 @@ import Footer from './components/Footer/Footer';
 import PromoOfferModal from './components/Promo/PromoOfferModal';
 import WishlistModal from './components/Wishlist/WishlistModal';
 import ImageLightbox from './components/UI/ImageLightbox';
+import PolicyPage from './components/Policies/PolicyPage';
 import { useCart } from './context/CartContext';
 import './App.css';
 
@@ -91,6 +92,7 @@ function App() {
               />
               <Route path="/cart" element={<CartPage />} />
               <Route path="/admin" element={<AdminDashboard />} />
+              <Route path="/policy/:type" element={<PolicyPage />} />
             </Routes>
           </main>
           <Footer />

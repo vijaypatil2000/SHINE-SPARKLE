@@ -18,7 +18,7 @@ export default async function handler(req, res) {
     
     // Create HMAC SHA256 signature using the secret secret key
     const expectedSign = crypto
-      .createHmac("sha256", process.env.RAZORPAY_KEY_SECRET || 'mock_secret')
+      .createHmac("sha256", process.env.RAZORPAY_KEY_SECRET)
       .update(sign.toString())
       .digest("hex");
 
