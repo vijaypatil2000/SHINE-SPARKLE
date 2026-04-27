@@ -1,23 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Outfit:wght@100..900&display=swap');
 
 :root {
-  /* Premium Luxury Theme */
-  --bg-primary: #FAF9F6; /* Soft Off-White Silk */
-  --bg-secondary: #FFFFFF;
-  --bg-tertiary: #F3F1ED;
-  --bg-topbar: #121212;
-  --bg-card: #FFFFFF;
+  /* Premium Dark Green Velvet Theme */
+  --bg-primary: #0a1710; /* Deep Velvet Green */
+  --bg-secondary: #102419; /* Lighter Velvet */
+  --bg-tertiary: #060e0a;
+  --bg-topbar: #040906;
+  --bg-card: #102419;
   
-  --text-primary: #1A1A1A;
-  --text-secondary: #5A5A5A;
-  --text-inverse: #FFFFFF;
+  --text-primary: #F5F5F5;
+  --text-secondary: #B0B0B0;
+  --text-inverse: #040906;
   
-  --accent-primary: #C5A059; /* Brand Antique Gold */
-  --accent-hover: #A68545;
-  --accent-gold-soft: #F9F1D8;
+  --accent-primary: #D4AF37; /* Antique Gold */
+  --accent-hover: #F2D272;
+  --accent-gold-soft: #4a3d13;
   
-  --border-color: #E2E2E2;
-  --border-light: #F0F0F0;
+  --border-color: #1d3d2a;
+  --border-light: #162e20;
   
   --font-heading: 'Playfair Display', serif;
   --font-body: 'Outfit', sans-serif;
@@ -30,26 +30,27 @@
   
   --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-normal: 0.3s ease;
-  --shadow-premium: 0 10px 30px rgba(0,0,0,0.03);
-  --shadow-hover: 0 20px 40px rgba(0,0,0,0.06);
+  --shadow-premium: 0 10px 30px rgba(0, 0, 0, 0.4);
+  --shadow-hover: 0 20px 40px rgba(212, 175, 55, 0.1);
 }
 
 [data-theme='dark'] {
-  --bg-primary: #121212;
-  --bg-secondary: #1A1A1A;
-  --bg-tertiary: #0D0D0D;
+  /* Inherit the same dark green velvet theme for consistency */
+  --bg-primary: #060e0a; 
+  --bg-secondary: #0a1710;
+  --bg-tertiary: #040906;
   --bg-topbar: #000000;
-  --bg-card: #1E1E1E;
+  --bg-card: #0a1710;
   
-  --text-primary: #F5F5F5;
+  --text-primary: #FFFFFF;
   --text-secondary: #A0A0A0;
-  --text-inverse: #F5F5F5;
+  --text-inverse: #000000;
   
   --accent-primary: #D4AF37;
-  --accent-hover: #E5C352;
+  --accent-hover: #F2D272;
   
-  --border-color: #2D2D2D;
-  --border-light: #1F1F1F;
+  --border-color: #162e20;
+  --border-light: #0d1a12;
 }
 
 * {

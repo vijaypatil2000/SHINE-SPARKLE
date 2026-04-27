@@ -2,1467 +2,1249 @@ export const categories = ['ALL', 'BESTSELLERS', 'NEW ARRIVALS', 'NECKLACE', 'EA
 
 export const products = [
   {
-    id: 1,
-    title: 'Imperial Gold Plated Choker Set',
-    description: 'A stunning piece of artistry featuring gold plated with intricate imperial patterns. Ideal for a grand ethnic look.',
-    image: '/img/IMG_2450.jpg',
-    category: 'NECKLACE',
-    price: 199,
-    oldPrice: 299,
-    rating: '4.6',
-    reviews: 40,
-    tags: ['BESTSELLERS']
-  },
-  {
-    id: 2,
-    title: 'Royal Kundan Studded Long Haram',
-    description: 'Experience the elegance of this royal long haram, meticulously crafted with a premium kundan studded finish.',
-    image: '/img/IMG_2452.jpg',
-    category: 'NECKLACE',
-    price: 222,
-    oldPrice: 329,
-    rating: '4.7',
-    reviews: 41,
-    tags: []
-  },
-  {
-    id: 3,
-    title: 'Heritage Polki Finish Short Necklace Set',
-    description: 'This heritage masterpiece combines traditional polki finish motifs with modern design, making it a timeless addition to your collection.',
-    image: '/img/IMG_2455.jpg',
-    category: 'NECKLACE',
-    price: 245,
-    oldPrice: 359,
-    rating: '4.8',
-    reviews: 42,
-    tags: []
-  },
-  {
-    id: 4,
-    title: 'Antique Meenakari Mala with Pendant',
-    description: 'Beautifully detailed mala with pendant set, showcasing the best of antique jewelry craftsmanship and superior meenakari detailing.',
-    image: '/img/IMG_2458.jpg',
-    category: 'NECKLACE',
-    price: 268,
-    oldPrice: 389,
-    rating: '4.9',
-    reviews: 43,
-    tags: []
-  },
-  {
-    id: 5,
-    title: 'Celestial Jadau Bridal Set',
-    description: 'Enhance your festive ensemble with this handcrafted celestial bridal set, finished with exquisite jadau workmanship.',
-    image: '/img/IMG_2460.jpg',
-    category: 'NECKLACE',
-    price: 291,
-    oldPrice: 419,
-    rating: '4.6',
-    reviews: 44,
-    tags: []
-  },
-  {
-    id: 6,
-    title: 'Ethereal Temple Work Guttapusalu Haram',
-    description: 'A stunning piece of artistry featuring temple work with intricate ethereal patterns. Ideal for a grand ethnic look.',
-    image: '/img/IMG_2463.jpg',
-    category: 'NECKLACE',
-    price: 314,
-    oldPrice: 449,
-    rating: '4.7',
-    reviews: 45,
-    tags: []
-  },
-  {
-    id: 7,
-    title: 'Vintage Matte Gold Choker Set',
-    description: 'Experience the elegance of this vintage choker set, meticulously crafted with a premium matte gold finish.',
-    image: '/img/IMG_2467.jpg',
-    category: 'NECKLACE',
-    price: 337,
-    oldPrice: 479,
-    rating: '4.8',
-    reviews: 46,
-    tags: []
-  },
-  {
-    id: 8,
-    title: 'Classic Gold Plated Long Haram',
-    description: 'This classic masterpiece combines traditional gold plated motifs with modern design, making it a timeless addition to your collection.',
-    image: '/img/IMG_2471.jpg',
-    category: 'NECKLACE',
-    price: 360,
-    oldPrice: 509,
-    rating: '4.9',
-    reviews: 47,
-    tags: ['BESTSELLERS']
-  },
-  {
-    id: 9,
-    title: 'Devotional Kundan Studded Short Necklace Set',
-    description: 'Beautifully detailed short necklace set set, showcasing the best of devotional jewelry craftsmanship and superior kundan studded detailing.',
-    image: '/img/IMG_2474.jpg',
-    category: 'NECKLACE',
-    price: 383,
-    oldPrice: 539,
-    rating: '4.6',
-    reviews: 48,
-    tags: []
-  },
-  {
-    id: 10,
-    title: 'Bridal Polki Finish Mala with Pendant',
-    description: 'Enhance your festive ensemble with this handcrafted bridal mala with pendant, finished with exquisite polki finish workmanship.',
-    image: '/img/IMG_2476.jpg',
-    category: 'NECKLACE',
-    price: 406,
-    oldPrice: 569,
-    rating: '4.7',
-    reviews: 49,
-    tags: ['NEW ARRIVALS']
-  },
-  {
-    id: 11,
-    title: 'Imperial Meenakari Bridal Set',
-    description: 'A stunning piece of artistry featuring meenakari with intricate imperial patterns. Ideal for a grand ethnic look.',
-    image: '/img/IMG_2480.jpg',
-    category: 'NECKLACE',
-    price: 429,
-    oldPrice: 599,
-    rating: '4.8',
-    reviews: 50,
-    tags: []
-  },
-  {
-    id: 12,
-    title: 'Royal Jadau Guttapusalu Haram',
-    description: 'Experience the elegance of this royal guttapusalu haram, meticulously crafted with a premium jadau finish.',
-    image: '/img/IMG_2488.jpg',
-    category: 'NECKLACE',
-    price: 452,
-    oldPrice: 629,
-    rating: '4.9',
-    reviews: 51,
-    tags: []
-  },
-  {
-    id: 13,
-    title: 'Heritage Temple Work Choker Set',
-    description: 'This heritage masterpiece combines traditional temple work motifs with modern design, making it a timeless addition to your collection.',
-    image: '/img/IMG_2491.jpg',
-    category: 'NECKLACE',
-    price: 475,
-    oldPrice: 659,
-    rating: '4.6',
-    reviews: 52,
-    tags: []
-  },
-  {
-    id: 14,
-    title: 'Antique Matte Gold Long Haram',
-    description: 'Beautifully detailed long haram set, showcasing the best of antique jewelry craftsmanship and superior matte gold detailing.',
-    image: '/img/IMG_2494.jpg',
-    category: 'NECKLACE',
-    price: 498,
-    oldPrice: 689,
-    rating: '4.7',
-    reviews: 53,
-    tags: []
-  },
-  {
-    id: 15,
-    title: 'Celestial Gold Plated Short Necklace Set',
-    description: 'Enhance your festive ensemble with this handcrafted celestial short necklace set, finished with exquisite gold plated workmanship.',
-    image: '/img/IMG_2497.jpg',
-    category: 'NECKLACE',
-    price: 521,
-    oldPrice: 719,
-    rating: '4.8',
-    reviews: 54,
-    tags: ['BESTSELLERS']
-  },
-  {
-    id: 16,
-    title: 'Ethereal Kundan Studded Mala with Pendant',
-    description: 'A stunning piece of artistry featuring kundan studded with intricate ethereal patterns. Ideal for a grand ethnic look.',
-    image: '/img/IMG_2500.jpg',
-    category: 'NECKLACE',
-    price: 544,
-    oldPrice: 749,
-    rating: '4.9',
-    reviews: 55,
-    tags: []
-  },
-  {
-    id: 17,
-    title: 'Vintage Polki Finish Signature Studs',
-    description: 'Experience the elegance of this vintage signature studs, meticulously crafted with a premium polki finish finish.',
-    image: '/img/IMG_2505.jpg',
-    category: 'EARRINGS',
-    price: 567,
-    oldPrice: 779,
-    rating: '4.6',
-    reviews: 56,
-    tags: []
-  },
-  {
-    id: 18,
-    title: 'Classic Meenakari Guttapusalu Haram',
-    description: 'This classic masterpiece combines traditional meenakari motifs with modern design, making it a timeless addition to your collection.',
-    image: '/img/IMG_2509.jpg',
-    category: 'NECKLACE',
-    price: 590,
-    oldPrice: 809,
-    rating: '4.7',
-    reviews: 57,
-    tags: []
-  },
-  {
-    id: 19,
-    title: 'Devotional Jadau Choker Set',
-    description: 'Beautifully detailed choker set set, showcasing the best of devotional jewelry craftsmanship and superior jadau detailing.',
-    image: '/img/IMG_2512.jpg',
-    category: 'NECKLACE',
-    price: 613,
-    oldPrice: 839,
-    rating: '4.8',
-    reviews: 58,
-    tags: ['NEW ARRIVALS']
-  },
-  {
-    id: 20,
-    title: 'Bridal Temple Work Long Haram',
-    description: 'Enhance your festive ensemble with this handcrafted bridal long haram, finished with exquisite temple work workmanship.',
-    image: '/img/IMG_2516.jpg',
-    category: 'NECKLACE',
-    price: 636,
-    oldPrice: 869,
-    rating: '4.9',
-    reviews: 59,
-    tags: []
-  },
-  {
-    id: 21,
-    title: 'Imperial Matte Gold Short Necklace Set',
-    description: 'A stunning piece of artistry featuring matte gold with intricate imperial patterns. Ideal for a grand ethnic look.',
-    image: '/img/IMG_2520.jpg',
-    category: 'NECKLACE',
-    price: 659,
-    oldPrice: 899,
-    rating: '4.6',
-    reviews: 60,
-    tags: []
-  },
-  {
-    id: 22,
-    title: 'Royal Gold Plated Mala with Pendant',
-    description: 'Experience the elegance of this royal mala with pendant, meticulously crafted with a premium gold plated finish.',
-    image: '/img/IMG_2523.jpg',
-    category: 'NECKLACE',
-    price: 682,
-    oldPrice: 929,
-    rating: '4.7',
-    reviews: 61,
-    tags: ['BESTSELLERS']
-  },
-  {
-    id: 23,
-    title: 'Heritage Kundan Studded Bridal Set',
-    description: 'This heritage masterpiece combines traditional kundan studded motifs with modern design, making it a timeless addition to your collection.',
-    image: '/img/IMG_2527.jpg',
-    category: 'NECKLACE',
-    price: 705,
-    oldPrice: 959,
-    rating: '4.8',
-    reviews: 62,
-    tags: []
-  },
-  {
-    id: 24,
-    title: 'Antique Polki Finish Guttapusalu Haram',
-    description: 'Beautifully detailed guttapusalu haram set, showcasing the best of antique jewelry craftsmanship and superior polki finish detailing.',
-    image: '/img/IMG_2530.jpg',
-    category: 'NECKLACE',
-    price: 728,
-    oldPrice: 989,
-    rating: '4.9',
-    reviews: 63,
-    tags: []
-  },
-  {
-    id: 25,
-    title: 'Celestial Meenakari Choker Set',
-    description: 'Enhance your festive ensemble with this handcrafted celestial choker set, finished with exquisite meenakari workmanship.',
-    image: '/img/IMG_2533.jpg',
-    category: 'NECKLACE',
-    price: 751,
-    oldPrice: 1019,
-    rating: '4.6',
-    reviews: 64,
-    tags: []
-  },
-  {
-    id: 26,
-    title: 'Ethereal Jadau Long Haram',
-    description: 'A stunning piece of artistry featuring jadau with intricate ethereal patterns. Ideal for a grand ethnic look.',
-    image: '/img/IMG_2537.jpg',
-    category: 'NECKLACE',
-    price: 774,
-    oldPrice: 1049,
-    rating: '4.7',
-    reviews: 65,
-    tags: []
-  },
-  {
-    id: 27,
-    title: 'Vintage Temple Work Short Necklace Set',
-    description: 'Experience the elegance of this vintage short necklace set, meticulously crafted with a premium temple work finish.',
-    image: '/img/IMG_2540.jpg',
-    category: 'NECKLACE',
-    price: 797,
-    oldPrice: 1079,
-    rating: '4.8',
-    reviews: 66,
-    tags: []
-  },
-  {
-    id: 28,
-    title: 'Classic Matte Gold Mala with Pendant',
-    description: 'This classic masterpiece combines traditional matte gold motifs with modern design, making it a timeless addition to your collection.',
-    image: '/img/IMG_2542.jpg',
-    category: 'NECKLACE',
-    price: 820,
-    oldPrice: 1109,
-    rating: '4.9',
-    reviews: 67,
-    tags: ['NEW ARRIVALS']
-  },
-  {
-    id: 29,
-    title: 'Devotional Gold Plated Bridal Set',
-    description: 'Beautifully detailed bridal set set, showcasing the best of devotional jewelry craftsmanship and superior gold plated detailing.',
-    image: '/img/IMG_2544.jpg',
-    category: 'NECKLACE',
-    price: 843,
-    oldPrice: 1139,
-    rating: '4.6',
-    reviews: 68,
-    tags: ['BESTSELLERS']
-  },
-  {
-    id: 30,
-    title: 'Bridal Kundan Studded Guttapusalu Haram',
-    description: 'Enhance your festive ensemble with this handcrafted bridal guttapusalu haram, finished with exquisite kundan studded workmanship.',
-    image: '/img/IMG_2545.jpg',
-    category: 'NECKLACE',
-    price: 866,
-    oldPrice: 1169,
-    rating: '4.7',
-    reviews: 69,
-    tags: []
-  },
-  {
-    id: 31,
-    title: 'Imperial Polki Finish Choker Set',
-    description: 'A stunning piece of artistry featuring polki finish with intricate imperial patterns. Ideal for a grand ethnic look.',
-    image: '/img/IMG_2550.jpg',
-    category: 'NECKLACE',
-    price: 889,
-    oldPrice: 1199,
-    rating: '4.8',
-    reviews: 70,
-    tags: []
-  },
-  {
-    id: 32,
-    title: 'Royal Meenakari Long Haram',
-    description: 'Experience the elegance of this royal long haram, meticulously crafted with a premium meenakari finish.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.13 PM (1).jpeg',
-    category: 'NECKLACE',
-    price: 912,
-    oldPrice: 1229,
-    rating: '4.9',
-    reviews: 71,
-    tags: []
-  },
-  {
-    id: 33,
-    title: 'Heritage Jadau Short Necklace Set',
-    description: 'This heritage masterpiece combines traditional jadau motifs with modern design, making it a timeless addition to your collection.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.13 PM.jpeg',
-    category: 'NECKLACE',
-    price: 935,
-    oldPrice: 1259,
-    rating: '4.6',
-    reviews: 72,
-    tags: []
-  },
-  {
-    id: 34,
-    title: 'Antique Temple Work Mala with Pendant',
-    description: 'Beautifully detailed mala with pendant set, showcasing the best of antique jewelry craftsmanship and superior temple work detailing.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.14 PM (1).jpeg',
-    category: 'NECKLACE',
-    price: 208,
-    oldPrice: 539,
-    rating: '4.7',
-    reviews: 73,
-    tags: []
-  },
-  {
-    id: 35,
-    title: 'Celestial Matte Gold Bridal Set',
-    description: 'Enhance your festive ensemble with this handcrafted celestial bridal set, finished with exquisite matte gold workmanship.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.14 PM.jpeg',
-    category: 'NECKLACE',
-    price: 231,
-    oldPrice: 569,
-    rating: '4.8',
-    reviews: 74,
-    tags: []
-  },
-  {
-    id: 36,
-    title: 'Ethereal Gold Plated Guttapusalu Haram',
-    description: 'A stunning piece of artistry featuring gold plated with intricate ethereal patterns. Ideal for a grand ethnic look.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.15 PM (1).jpeg',
-    category: 'NECKLACE',
-    price: 254,
-    oldPrice: 599,
-    rating: '4.9',
-    reviews: 75,
-    tags: ['BESTSELLERS']
-  },
-  {
-    id: 37,
-    title: 'Vintage Kundan Studded Choker Set',
-    description: 'Experience the elegance of this vintage choker set, meticulously crafted with a premium kundan studded finish.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.15 PM.jpeg',
-    category: 'NECKLACE',
-    price: 277,
-    oldPrice: 629,
-    rating: '4.6',
-    reviews: 76,
-    tags: ['NEW ARRIVALS']
-  },
-  {
-    id: 38,
-    title: 'Classic Polki Finish Long Haram',
-    description: 'This classic masterpiece combines traditional polki finish motifs with modern design, making it a timeless addition to your collection.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.16 PM.jpeg',
-    category: 'NECKLACE',
-    price: 300,
-    oldPrice: 659,
-    rating: '4.7',
-    reviews: 77,
-    tags: []
-  },
-  {
-    id: 39,
-    title: 'Devotional Meenakari Short Necklace Set',
-    description: 'Beautifully detailed short necklace set set, showcasing the best of devotional jewelry craftsmanship and superior meenakari detailing.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.19 PM.jpeg',
-    category: 'NECKLACE',
-    price: 323,
-    oldPrice: 689,
-    rating: '4.8',
-    reviews: 78,
-    tags: []
-  },
-  {
-    id: 40,
-    title: 'Bridal Jadau Mala with Pendant',
-    description: 'Enhance your festive ensemble with this handcrafted bridal mala with pendant, finished with exquisite jadau workmanship.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.20 PM (1).jpeg',
-    category: 'NECKLACE',
-    price: 346,
-    oldPrice: 719,
-    rating: '4.9',
-    reviews: 79,
-    tags: []
-  },
-  {
-    id: 41,
-    title: 'Imperial Temple Work Bridal Set',
-    description: 'A stunning piece of artistry featuring temple work with intricate imperial patterns. Ideal for a grand ethnic look.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.20 PM (2).jpeg',
-    category: 'NECKLACE',
-    price: 369,
-    oldPrice: 749,
-    rating: '4.6',
-    reviews: 80,
-    tags: []
-  },
-  {
-    id: 42,
-    title: 'Royal Matte Gold Guttapusalu Haram',
-    description: 'Experience the elegance of this royal guttapusalu haram, meticulously crafted with a premium matte gold finish.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.20 PM.jpeg',
-    category: 'NECKLACE',
-    price: 392,
-    oldPrice: 779,
-    rating: '4.7',
-    reviews: 81,
-    tags: []
-  },
-  {
-    id: 43,
-    title: 'Heritage Gold Plated Choker Set',
-    description: 'This heritage masterpiece combines traditional gold plated motifs with modern design, making it a timeless addition to your collection.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.21 PM (1).jpeg',
-    category: 'NECKLACE',
-    price: 415,
-    oldPrice: 809,
-    rating: '4.8',
-    reviews: 82,
-    tags: ['BESTSELLERS']
-  },
-  {
-    id: 44,
-    title: 'Antique Kundan Studded Chandeliers',
-    description: 'Beautifully detailed chandeliers set, showcasing the best of antique jewelry craftsmanship and superior kundan studded detailing.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.21 PM (2).jpeg',
-    category: 'EARRINGS',
-    price: 438,
-    oldPrice: 539,
-    rating: '4.9',
-    reviews: 83,
-    tags: []
-  },
-  {
-    id: 45,
-    title: 'Celestial Polki Finish Drop Earrings',
-    description: 'Enhance your festive ensemble with this handcrafted celestial drop earrings, finished with exquisite polki finish workmanship.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.21 PM.jpeg',
-    category: 'EARRINGS',
-    price: 461,
-    oldPrice: 569,
-    rating: '4.6',
-    reviews: 84,
-    tags: []
-  },
-  {
-    id: 46,
-    title: 'Ethereal Meenakari Balis',
-    description: 'A stunning piece of artistry featuring meenakari with intricate ethereal patterns. Ideal for a grand ethnic look.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.22 PM (1).jpeg',
-    category: 'EARRINGS',
-    price: 484,
-    oldPrice: 599,
-    rating: '4.7',
-    reviews: 85,
-    tags: ['NEW ARRIVALS']
-  },
-  {
-    id: 47,
-    title: 'Vintage Jadau Signature Studs',
-    description: 'Experience the elegance of this vintage signature studs, meticulously crafted with a premium jadau finish.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.22 PM (2).jpeg',
-    category: 'EARRINGS',
-    price: 507,
-    oldPrice: 629,
-    rating: '4.8',
-    reviews: 86,
-    tags: []
-  },
-  {
-    id: 48,
-    title: 'Classic Temple Work Earcuffs',
-    description: 'This classic masterpiece combines traditional temple work motifs with modern design, making it a timeless addition to your collection.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.22 PM.jpeg',
-    category: 'EARRINGS',
-    price: 530,
-    oldPrice: 659,
-    rating: '4.9',
-    reviews: 87,
-    tags: []
-  },
-  {
-    id: 49,
-    title: 'Devotional Matte Gold Jhumkas',
-    description: 'Beautifully detailed jhumkas set, showcasing the best of devotional jewelry craftsmanship and superior matte gold detailing.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.23 PM (1).jpeg',
-    category: 'EARRINGS',
-    price: 553,
-    oldPrice: 689,
-    rating: '4.6',
-    reviews: 88,
-    tags: []
-  },
-  {
-    id: 50,
-    title: 'Bridal Gold Plated Chandeliers',
-    description: 'Enhance your festive ensemble with this handcrafted bridal chandeliers, finished with exquisite gold plated workmanship.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.23 PM (2).jpeg',
-    category: 'EARRINGS',
-    price: 576,
-    oldPrice: 719,
-    rating: '4.7',
-    reviews: 89,
-    tags: ['BESTSELLERS']
-  },
-  {
-    id: 51,
-    title: 'Imperial Kundan Studded Drop Earrings',
-    description: 'A stunning piece of artistry featuring kundan studded with intricate imperial patterns. Ideal for a grand ethnic look.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.23 PM.jpeg',
-    category: 'EARRINGS',
-    price: 599,
-    oldPrice: 749,
-    rating: '4.8',
-    reviews: 90,
-    tags: []
-  },
-  {
-    id: 52,
-    title: 'Royal Polki Finish Balis',
-    description: 'Experience the elegance of this royal balis, meticulously crafted with a premium polki finish finish.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.24 PM (1).jpeg',
-    category: 'EARRINGS',
-    price: 622,
-    oldPrice: 779,
-    rating: '4.9',
-    reviews: 91,
-    tags: []
-  },
-  {
-    id: 53,
-    title: 'Heritage Meenakari Signature Studs',
-    description: 'This heritage masterpiece combines traditional meenakari motifs with modern design, making it a timeless addition to your collection.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.24 PM (2).jpeg',
-    category: 'EARRINGS',
-    price: 645,
-    oldPrice: 809,
-    rating: '4.6',
-    reviews: 92,
-    tags: []
-  },
-  {
-    id: 54,
-    title: 'Antique Jadau Earcuffs',
-    description: 'Beautifully detailed earcuffs set, showcasing the best of antique jewelry craftsmanship and superior jadau detailing.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.24 PM.jpeg',
-    category: 'EARRINGS',
-    price: 668,
-    oldPrice: 839,
-    rating: '4.7',
-    reviews: 93,
-    tags: []
-  },
-  {
-    id: 55,
-    title: 'Celestial Temple Work Jhumkas',
-    description: 'Enhance your festive ensemble with this handcrafted celestial jhumkas, finished with exquisite temple work workmanship.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.28 PM.jpeg',
-    category: 'EARRINGS',
-    price: 691,
-    oldPrice: 869,
-    rating: '4.8',
-    reviews: 94,
-    tags: ['NEW ARRIVALS']
-  },
-  {
-    id: 56,
-    title: 'Ethereal Matte Gold Long Haram',
-    description: 'A stunning piece of artistry featuring matte gold with intricate ethereal patterns. Ideal for a grand ethnic look.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.30 PM.jpeg',
-    category: 'NECKLACE',
-    price: 714,
-    oldPrice: 899,
-    rating: '4.9',
-    reviews: 95,
-    tags: []
-  },
-  {
-    id: 57,
-    title: 'Vintage Gold Plated Short Necklace Set',
-    description: 'Experience the elegance of this vintage short necklace set, meticulously crafted with a premium gold plated finish.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.31 PM.jpeg',
-    category: 'NECKLACE',
-    price: 737,
-    oldPrice: 929,
-    rating: '4.6',
-    reviews: 96,
-    tags: ['BESTSELLERS']
-  },
-  {
-    id: 58,
-    title: 'Classic Kundan Studded Mala with Pendant',
-    description: 'This classic masterpiece combines traditional kundan studded motifs with modern design, making it a timeless addition to your collection.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.32 PM.jpeg',
-    category: 'NECKLACE',
-    price: 760,
-    oldPrice: 959,
-    rating: '4.7',
-    reviews: 97,
-    tags: []
-  },
-  {
-    id: 59,
-    title: 'Devotional Polki Finish Bridal Set',
-    description: 'Beautifully detailed bridal set set, showcasing the best of devotional jewelry craftsmanship and superior polki finish detailing.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.33 PM.jpeg',
-    category: 'NECKLACE',
-    price: 783,
-    oldPrice: 989,
-    rating: '4.8',
-    reviews: 98,
-    tags: []
-  },
-  {
-    id: 60,
-    title: 'Bridal Meenakari Guttapusalu Haram',
-    description: 'Enhance your festive ensemble with this handcrafted bridal guttapusalu haram, finished with exquisite meenakari workmanship.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.36 PM (1).jpeg',
-    category: 'NECKLACE',
-    price: 806,
-    oldPrice: 1019,
-    rating: '4.9',
-    reviews: 99,
-    tags: []
-  },
-  {
-    id: 61,
-    title: 'Imperial Jadau Choker Set',
-    description: 'A stunning piece of artistry featuring jadau with intricate imperial patterns. Ideal for a grand ethnic look.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.36 PM.jpeg',
-    category: 'NECKLACE',
-    price: 829,
-    oldPrice: 1049,
-    rating: '4.6',
-    reviews: 100,
-    tags: []
-  },
-  {
-    id: 62,
-    title: 'Royal Temple Work Long Haram',
-    description: 'Experience the elegance of this royal long haram, meticulously crafted with a premium temple work finish.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.37 PM (1).jpeg',
-    category: 'NECKLACE',
-    price: 852,
-    oldPrice: 1079,
-    rating: '4.7',
-    reviews: 101,
-    tags: []
-  },
-  {
-    id: 63,
-    title: 'Heritage Matte Gold Bangle Set',
-    description: 'This heritage masterpiece combines traditional matte gold motifs with modern design, making it a timeless addition to your collection.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.37 PM (2).jpeg',
-    category: 'BANGLES & BRACELETS',
-    price: 875,
-    oldPrice: 1109,
-    rating: '4.8',
-    reviews: 102,
-    tags: []
-  },
-  {
-    id: 64,
-    title: 'Antique Gold Plated Cuff',
-    description: 'Beautifully detailed cuff set, showcasing the best of antique jewelry craftsmanship and superior gold plated detailing.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.37 PM.jpeg',
-    category: 'BANGLES & BRACELETS',
-    price: 898,
-    oldPrice: 1139,
-    rating: '4.9',
-    reviews: 103,
-    tags: ['BESTSELLERS']
-  },
-  {
-    id: 65,
-    title: 'Celestial Kundan Studded Kada',
-    description: 'Enhance your festive ensemble with this handcrafted celestial kada, finished with exquisite kundan studded workmanship.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.38 PM (1).jpeg',
-    category: 'BANGLES & BRACELETS',
-    price: 921,
-    oldPrice: 1169,
-    rating: '4.6',
-    reviews: 104,
-    tags: []
-  },
-  {
-    id: 66,
-    title: 'Ethereal Polki Finish Guttapusalu Haram',
-    description: 'A stunning piece of artistry featuring polki finish with intricate ethereal patterns. Ideal for a grand ethnic look.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.38 PM (2).jpeg',
-    category: 'NECKLACE',
-    price: 944,
-    oldPrice: 1199,
-    rating: '4.7',
-    reviews: 105,
-    tags: []
-  },
-  {
-    id: 67,
-    title: 'Vintage Meenakari Jhumkas',
-    description: 'Experience the elegance of this vintage jhumkas, meticulously crafted with a premium meenakari finish.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.38 PM (3).jpeg',
-    category: 'EARRINGS',
-    price: 217,
-    oldPrice: 479,
-    rating: '4.8',
-    reviews: 106,
-    tags: []
-  },
-  {
-    id: 68,
-    title: 'Classic Jadau Chandeliers',
-    description: 'This classic masterpiece combines traditional jadau motifs with modern design, making it a timeless addition to your collection.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.38 PM.jpeg',
-    category: 'EARRINGS',
-    price: 240,
-    oldPrice: 509,
-    rating: '4.9',
-    reviews: 107,
-    tags: []
-  },
-  {
-    id: 69,
-    title: 'Devotional Temple Work Drop Earrings',
-    description: 'Beautifully detailed drop earrings set, showcasing the best of devotional jewelry craftsmanship and superior temple work detailing.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.39 PM (1).jpeg',
-    category: 'EARRINGS',
-    price: 263,
-    oldPrice: 539,
-    rating: '4.6',
-    reviews: 108,
-    tags: []
-  },
-  {
-    id: 70,
-    title: 'Bridal Matte Gold Balis',
-    description: 'Enhance your festive ensemble with this handcrafted bridal balis, finished with exquisite matte gold workmanship.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.39 PM (2).jpeg',
-    category: 'EARRINGS',
-    price: 286,
-    oldPrice: 569,
-    rating: '4.7',
-    reviews: 109,
-    tags: []
-  },
-  {
-    id: 71,
-    title: 'Imperial Gold Plated Signature Studs',
-    description: 'A stunning piece of artistry featuring gold plated with intricate imperial patterns. Ideal for a grand ethnic look.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.39 PM (3).jpeg',
-    category: 'EARRINGS',
-    price: 309,
-    oldPrice: 599,
-    rating: '4.8',
-    reviews: 110,
-    tags: ['BESTSELLERS']
-  },
-  {
-    id: 72,
-    title: 'Royal Kundan Studded Earcuffs',
-    description: 'Experience the elegance of this royal earcuffs, meticulously crafted with a premium kundan studded finish.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.39 PM.jpeg',
-    category: 'EARRINGS',
-    price: 332,
-    oldPrice: 629,
-    rating: '4.9',
-    reviews: 111,
-    tags: []
-  },
-  {
-    id: 73,
-    title: 'Heritage Polki Finish Jhumkas',
-    description: 'This heritage masterpiece combines traditional polki finish motifs with modern design, making it a timeless addition to your collection.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.40 PM (1).jpeg',
-    category: 'EARRINGS',
-    price: 355,
-    oldPrice: 659,
-    rating: '4.6',
-    reviews: 112,
-    tags: ['NEW ARRIVALS']
-  },
-  {
-    id: 74,
-    title: 'Antique Meenakari Chandeliers',
-    description: 'Beautifully detailed chandeliers set, showcasing the best of antique jewelry craftsmanship and superior meenakari detailing.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.40 PM (2).jpeg',
-    category: 'EARRINGS',
-    price: 378,
-    oldPrice: 689,
-    rating: '4.7',
-    reviews: 113,
-    tags: []
-  },
-  {
-    id: 75,
-    title: 'Celestial Jadau Drop Earrings',
-    description: 'Enhance your festive ensemble with this handcrafted celestial drop earrings, finished with exquisite jadau workmanship.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.40 PM (3).jpeg',
-    category: 'EARRINGS',
-    price: 401,
-    oldPrice: 719,
-    rating: '4.8',
-    reviews: 114,
-    tags: []
-  },
-  {
-    id: 76,
-    title: 'Ethereal Temple Work Balis',
-    description: 'A stunning piece of artistry featuring temple work with intricate ethereal patterns. Ideal for a grand ethnic look.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.40 PM.jpeg',
-    category: 'EARRINGS',
-    price: 424,
-    oldPrice: 749,
-    rating: '4.9',
-    reviews: 115,
-    tags: []
-  },
-  {
-    id: 77,
-    title: 'Vintage Matte Gold Signature Studs',
-    description: 'Experience the elegance of this vintage signature studs, meticulously crafted with a premium matte gold finish.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.41 PM (1).jpeg',
-    category: 'EARRINGS',
-    price: 447,
-    oldPrice: 779,
-    rating: '4.6',
-    reviews: 116,
-    tags: []
-  },
-  {
-    id: 78,
-    title: 'Classic Gold Plated Earcuffs',
-    description: 'This classic masterpiece combines traditional gold plated motifs with modern design, making it a timeless addition to your collection.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.41 PM (2).jpeg',
-    category: 'EARRINGS',
-    price: 470,
-    oldPrice: 809,
-    rating: '4.7',
-    reviews: 117,
-    tags: ['BESTSELLERS']
-  },
-  {
-    id: 79,
-    title: 'Devotional Kundan Studded Jhumkas',
-    description: 'Beautifully detailed jhumkas set, showcasing the best of devotional jewelry craftsmanship and superior kundan studded detailing.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.41 PM.jpeg',
-    category: 'EARRINGS',
-    price: 493,
-    oldPrice: 839,
-    rating: '4.8',
-    reviews: 118,
-    tags: []
-  },
-  {
-    id: 80,
-    title: 'Bridal Polki Finish Chandeliers',
-    description: 'Enhance your festive ensemble with this handcrafted bridal chandeliers, finished with exquisite polki finish workmanship.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.42 PM (1).jpeg',
-    category: 'EARRINGS',
-    price: 516,
-    oldPrice: 869,
-    rating: '4.9',
-    reviews: 119,
-    tags: []
-  },
-  {
-    id: 81,
-    title: 'Imperial Meenakari Drop Earrings',
-    description: 'A stunning piece of artistry featuring meenakari with intricate imperial patterns. Ideal for a grand ethnic look.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.42 PM (2).jpeg',
-    category: 'EARRINGS',
-    price: 539,
-    oldPrice: 899,
-    rating: '4.6',
-    reviews: 120,
-    tags: []
-  },
-  {
-    id: 82,
-    title: 'Royal Jadau Balis',
-    description: 'Experience the elegance of this royal balis, meticulously crafted with a premium jadau finish.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.42 PM (3).jpeg',
-    category: 'EARRINGS',
-    price: 562,
-    oldPrice: 929,
-    rating: '4.7',
-    reviews: 121,
-    tags: ['NEW ARRIVALS']
-  },
-  {
-    id: 83,
-    title: 'Heritage Temple Work Signature Studs',
-    description: 'This heritage masterpiece combines traditional temple work motifs with modern design, making it a timeless addition to your collection.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.42 PM.jpeg',
-    category: 'EARRINGS',
-    price: 585,
-    oldPrice: 959,
-    rating: '4.8',
-    reviews: 122,
-    tags: []
-  },
-  {
-    id: 84,
-    title: 'Antique Matte Gold Earcuffs',
-    description: 'Beautifully detailed earcuffs set, showcasing the best of antique jewelry craftsmanship and superior matte gold detailing.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.43 PM (1).jpeg',
-    category: 'EARRINGS',
-    price: 608,
-    oldPrice: 989,
-    rating: '4.9',
-    reviews: 123,
-    tags: []
-  },
-  {
-    id: 85,
-    title: 'Celestial Gold Plated Choker Set',
-    description: 'Enhance your festive ensemble with this handcrafted celestial choker set, finished with exquisite gold plated workmanship.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.43 PM (2).jpeg',
-    category: 'NECKLACE',
-    price: 631,
-    oldPrice: 1019,
-    rating: '4.6',
-    reviews: 124,
-    tags: ['BESTSELLERS']
-  },
-  {
-    id: 86,
-    title: 'Ethereal Kundan Studded Long Haram',
-    description: 'A stunning piece of artistry featuring kundan studded with intricate ethereal patterns. Ideal for a grand ethnic look.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.43 PM (3).jpeg',
-    category: 'NECKLACE',
-    price: 654,
-    oldPrice: 1049,
-    rating: '4.7',
-    reviews: 125,
-    tags: []
-  },
-  {
-    id: 87,
-    title: 'Vintage Polki Finish Short Necklace Set',
-    description: 'Experience the elegance of this vintage short necklace set, meticulously crafted with a premium polki finish finish.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.43 PM.jpeg',
-    category: 'NECKLACE',
-    price: 677,
-    oldPrice: 779,
-    rating: '4.8',
-    reviews: 126,
-    tags: []
-  },
-  {
-    id: 88,
-    title: 'Classic Meenakari Mala with Pendant',
-    description: 'This classic masterpiece combines traditional meenakari motifs with modern design, making it a timeless addition to your collection.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.44 PM (1).jpeg',
-    category: 'NECKLACE',
-    price: 700,
-    oldPrice: 809,
-    rating: '4.9',
-    reviews: 127,
-    tags: []
-  },
-  {
-    id: 89,
-    title: 'Devotional Jadau Bridal Set',
-    description: 'Beautifully detailed bridal set set, showcasing the best of devotional jewelry craftsmanship and superior jadau detailing.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.44 PM (2).jpeg',
-    category: 'NECKLACE',
-    price: 723,
-    oldPrice: 839,
-    rating: '4.6',
-    reviews: 128,
-    tags: []
-  },
-  {
-    id: 90,
-    title: 'Bridal Temple Work Guttapusalu Haram',
-    description: 'Enhance your festive ensemble with this handcrafted bridal guttapusalu haram, finished with exquisite temple work workmanship.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.44 PM (3).jpeg',
-    category: 'NECKLACE',
-    price: 746,
-    oldPrice: 869,
-    rating: '4.7',
-    reviews: 129,
-    tags: []
-  },
-  {
-    id: 91,
-    title: 'Imperial Matte Gold Choker Set',
-    description: 'A stunning piece of artistry featuring matte gold with intricate imperial patterns. Ideal for a grand ethnic look.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.44 PM.jpeg',
-    category: 'NECKLACE',
-    price: 769,
-    oldPrice: 899,
-    rating: '4.8',
-    reviews: 130,
-    tags: ['NEW ARRIVALS']
-  },
-  {
-    id: 92,
-    title: 'Royal Gold Plated Long Haram',
-    description: 'Experience the elegance of this royal long haram, meticulously crafted with a premium gold plated finish.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.45 PM (1).jpeg',
-    category: 'NECKLACE',
-    price: 792,
-    oldPrice: 929,
-    rating: '4.9',
-    reviews: 131,
-    tags: ['BESTSELLERS']
-  },
-  {
-    id: 93,
-    title: 'Heritage Kundan Studded Short Necklace Set',
-    description: 'This heritage masterpiece combines traditional kundan studded motifs with modern design, making it a timeless addition to your collection.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.45 PM (2).jpeg',
-    category: 'NECKLACE',
-    price: 815,
-    oldPrice: 959,
-    rating: '4.6',
-    reviews: 132,
-    tags: []
-  },
-  {
-    id: 94,
-    title: 'Antique Polki Finish Mala with Pendant',
-    description: 'Beautifully detailed mala with pendant set, showcasing the best of antique jewelry craftsmanship and superior polki finish detailing.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.45 PM (3).jpeg',
-    category: 'NECKLACE',
-    price: 838,
-    oldPrice: 989,
-    rating: '4.7',
-    reviews: 133,
-    tags: []
-  },
-  {
-    id: 95,
-    title: 'Celestial Meenakari Bridal Set',
-    description: 'Enhance your festive ensemble with this handcrafted celestial bridal set, finished with exquisite meenakari workmanship.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.45 PM.jpeg',
-    category: 'NECKLACE',
-    price: 861,
-    oldPrice: 1019,
-    rating: '4.8',
-    reviews: 134,
-    tags: []
-  },
-  {
-    id: 96,
-    title: 'Ethereal Jadau Guttapusalu Haram',
-    description: 'A stunning piece of artistry featuring jadau with intricate ethereal patterns. Ideal for a grand ethnic look.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.46 PM (1).jpeg',
-    category: 'NECKLACE',
-    price: 884,
-    oldPrice: 1049,
-    rating: '4.9',
-    reviews: 135,
-    tags: []
-  },
-  {
-    id: 97,
-    title: 'Vintage Temple Work Choker Set',
-    description: 'Experience the elegance of this vintage choker set, meticulously crafted with a premium temple work finish.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.46 PM (2).jpeg',
-    category: 'NECKLACE',
-    price: 907,
-    oldPrice: 1079,
-    rating: '4.6',
-    reviews: 136,
-    tags: []
-  },
-  {
-    id: 98,
-    title: 'Classic Matte Gold Long Haram',
-    description: 'This classic masterpiece combines traditional matte gold motifs with modern design, making it a timeless addition to your collection.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.46 PM.jpeg',
-    category: 'NECKLACE',
-    price: 930,
-    oldPrice: 1109,
-    rating: '4.7',
-    reviews: 137,
-    tags: []
-  },
-  {
-    id: 99,
-    title: 'Devotional Gold Plated Short Necklace Set',
-    description: 'Beautifully detailed short necklace set set, showcasing the best of devotional jewelry craftsmanship and superior gold plated detailing.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.47 PM (1).jpeg',
-    category: 'NECKLACE',
-    price: 203,
-    oldPrice: 389,
-    rating: '4.8',
-    reviews: 138,
-    tags: ['BESTSELLERS']
-  },
-  {
-    id: 100,
-    title: 'Bridal Kundan Studded Mala with Pendant',
-    description: 'Enhance your festive ensemble with this handcrafted bridal mala with pendant, finished with exquisite kundan studded workmanship.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.47 PM (2).jpeg',
-    category: 'NECKLACE',
-    price: 226,
-    oldPrice: 419,
-    rating: '4.9',
-    reviews: 139,
-    tags: ['NEW ARRIVALS']
-  },
-  {
-    id: 101,
-    title: 'Imperial Polki Finish Bridal Set',
-    description: 'A stunning piece of artistry featuring polki finish with intricate imperial patterns. Ideal for a grand ethnic look.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.47 PM.jpeg',
-    category: 'NECKLACE',
-    price: 249,
-    oldPrice: 449,
-    rating: '4.6',
-    reviews: 140,
-    tags: []
-  },
-  {
-    id: 102,
-    title: 'Royal Meenakari Guttapusalu Haram',
-    description: 'Experience the elegance of this royal guttapusalu haram, meticulously crafted with a premium meenakari finish.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.48 PM (1).jpeg',
-    category: 'NECKLACE',
-    price: 272,
-    oldPrice: 479,
-    rating: '4.7',
-    reviews: 141,
-    tags: []
-  },
-  {
-    id: 103,
-    title: 'Heritage Jadau Choker Set',
-    description: 'This heritage masterpiece combines traditional jadau motifs with modern design, making it a timeless addition to your collection.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.48 PM (2).jpeg',
-    category: 'NECKLACE',
-    price: 295,
-    oldPrice: 509,
-    rating: '4.8',
-    reviews: 142,
-    tags: []
-  },
-  {
-    id: 104,
-    title: 'Antique Temple Work Long Haram',
-    description: 'Beautifully detailed long haram set, showcasing the best of antique jewelry craftsmanship and superior temple work detailing.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.48 PM.jpeg',
-    category: 'NECKLACE',
-    price: 318,
-    oldPrice: 539,
-    rating: '4.9',
-    reviews: 143,
-    tags: []
-  },
-  {
-    id: 105,
-    title: 'Celestial Matte Gold Short Necklace Set',
-    description: 'Enhance your festive ensemble with this handcrafted celestial short necklace set, finished with exquisite matte gold workmanship.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.49 PM (1).jpeg',
-    category: 'NECKLACE',
-    price: 341,
-    oldPrice: 569,
-    rating: '4.6',
-    reviews: 144,
-    tags: []
-  },
-  {
-    id: 106,
-    title: 'Ethereal Gold Plated Mala with Pendant',
-    description: 'A stunning piece of artistry featuring gold plated with intricate ethereal patterns. Ideal for a grand ethnic look.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.49 PM (2).jpeg',
-    category: 'NECKLACE',
-    price: 364,
-    oldPrice: 599,
-    rating: '4.7',
-    reviews: 145,
-    tags: ['BESTSELLERS']
-  },
-  {
-    id: 107,
-    title: 'Vintage Kundan Studded Bridal Set',
-    description: 'Experience the elegance of this vintage bridal set, meticulously crafted with a premium kundan studded finish.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.49 PM (3).jpeg',
-    category: 'NECKLACE',
-    price: 387,
-    oldPrice: 629,
-    rating: '4.8',
-    reviews: 146,
-    tags: []
-  },
-  {
-    id: 108,
-    title: 'Classic Polki Finish Guttapusalu Haram',
-    description: 'This classic masterpiece combines traditional polki finish motifs with modern design, making it a timeless addition to your collection.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.49 PM.jpeg',
-    category: 'NECKLACE',
-    price: 410,
-    oldPrice: 659,
-    rating: '4.9',
-    reviews: 147,
-    tags: []
-  },
-  {
-    id: 109,
-    title: 'Devotional Meenakari Choker Set',
-    description: 'Beautifully detailed choker set set, showcasing the best of devotional jewelry craftsmanship and superior meenakari detailing.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.50 PM (1).jpeg',
-    category: 'NECKLACE',
-    price: 433,
-    oldPrice: 689,
-    rating: '4.6',
-    reviews: 148,
-    tags: ['NEW ARRIVALS']
-  },
-  {
-    id: 110,
-    title: 'Bridal Jadau Long Haram',
-    description: 'Enhance your festive ensemble with this handcrafted bridal long haram, finished with exquisite jadau workmanship.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.50 PM (2).jpeg',
-    category: 'NECKLACE',
-    price: 456,
-    oldPrice: 719,
-    rating: '4.7',
-    reviews: 149,
-    tags: []
-  },
-  {
-    id: 111,
-    title: 'Imperial Temple Work Short Necklace Set',
-    description: 'A stunning piece of artistry featuring temple work with intricate imperial patterns. Ideal for a grand ethnic look.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.50 PM.jpeg',
-    category: 'NECKLACE',
-    price: 479,
-    oldPrice: 749,
-    rating: '4.8',
-    reviews: 150,
-    tags: []
-  },
-  {
-    id: 112,
-    title: 'Royal Matte Gold Mala with Pendant',
-    description: 'Experience the elegance of this royal mala with pendant, meticulously crafted with a premium matte gold finish.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.51 PM (1).jpeg',
-    category: 'NECKLACE',
-    price: 502,
-    oldPrice: 779,
-    rating: '4.9',
-    reviews: 151,
-    tags: []
-  },
-  {
-    id: 113,
-    title: 'Heritage Gold Plated Bridal Set',
-    description: 'This heritage masterpiece combines traditional gold plated motifs with modern design, making it a timeless addition to your collection.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.51 PM (2).jpeg',
-    category: 'NECKLACE',
-    price: 525,
-    oldPrice: 809,
-    rating: '4.6',
-    reviews: 152,
-    tags: ['BESTSELLERS']
-  },
-  {
-    id: 114,
-    title: 'Antique Kundan Studded Guttapusalu Haram',
-    description: 'Beautifully detailed guttapusalu haram set, showcasing the best of antique jewelry craftsmanship and superior kundan studded detailing.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.51 PM.jpeg',
-    category: 'NECKLACE',
-    price: 548,
-    oldPrice: 839,
-    rating: '4.7',
-    reviews: 153,
-    tags: []
-  },
-  {
-    id: 115,
-    title: 'Celestial Polki Finish Choker Set',
-    description: 'Enhance your festive ensemble with this handcrafted celestial choker set, finished with exquisite polki finish workmanship.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.52 PM (1).jpeg',
-    category: 'NECKLACE',
-    price: 571,
-    oldPrice: 869,
-    rating: '4.8',
-    reviews: 154,
-    tags: []
-  },
-  {
-    id: 116,
-    title: 'Ethereal Meenakari Long Haram',
-    description: 'A stunning piece of artistry featuring meenakari with intricate ethereal patterns. Ideal for a grand ethnic look.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.52 PM (2).jpeg',
-    category: 'NECKLACE',
-    price: 594,
-    oldPrice: 899,
-    rating: '4.9',
-    reviews: 155,
-    tags: []
-  },
-  {
-    id: 117,
-    title: 'Vintage Jadau Short Necklace Set',
-    description: 'Experience the elegance of this vintage short necklace set, meticulously crafted with a premium jadau finish.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.52 PM.jpeg',
-    category: 'NECKLACE',
-    price: 617,
-    oldPrice: 929,
-    rating: '4.6',
-    reviews: 156,
-    tags: []
-  },
-  {
-    id: 118,
-    title: 'Classic Temple Work Mala with Pendant',
-    description: 'This classic masterpiece combines traditional temple work motifs with modern design, making it a timeless addition to your collection.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.53 PM (1).jpeg',
-    category: 'NECKLACE',
-    price: 640,
-    oldPrice: 959,
-    rating: '4.7',
-    reviews: 157,
-    tags: ['NEW ARRIVALS']
-  },
-  {
-    id: 119,
-    title: 'Devotional Matte Gold Bridal Set',
-    description: 'Beautifully detailed bridal set set, showcasing the best of devotional jewelry craftsmanship and superior matte gold detailing.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.53 PM (2).jpeg',
-    category: 'NECKLACE',
-    price: 663,
-    oldPrice: 989,
-    rating: '4.8',
-    reviews: 158,
-    tags: []
-  },
-  {
-    id: 120,
-    title: 'Bridal Gold Plated Guttapusalu Haram',
-    description: 'Enhance your festive ensemble with this handcrafted bridal guttapusalu haram, finished with exquisite gold plated workmanship.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.53 PM.jpeg',
-    category: 'NECKLACE',
-    price: 686,
-    oldPrice: 1019,
-    rating: '4.9',
-    reviews: 159,
-    tags: ['BESTSELLERS']
-  },
-  {
-    id: 121,
-    title: 'Imperial Kundan Studded Choker Set',
-    description: 'A stunning piece of artistry featuring kundan studded with intricate imperial patterns. Ideal for a grand ethnic look.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.54 PM (1).jpeg',
-    category: 'NECKLACE',
-    price: 709,
-    oldPrice: 1049,
-    rating: '4.6',
-    reviews: 160,
-    tags: []
-  },
-  {
-    id: 122,
-    title: 'Royal Polki Finish Long Haram',
-    description: 'Experience the elegance of this royal long haram, meticulously crafted with a premium polki finish finish.',
-    image: '/img/collection_2/WhatsApp Image 2026-04-11 at 5.27.54 PM.jpeg',
-    category: 'NECKLACE',
-    price: 732,
-    oldPrice: 1079,
-    rating: '4.7',
-    reviews: 161,
-    tags: []
-  },
+    "id": 1,
+    "title": "Imperial Velvet Necklace Set #1",
+    "description": "A stunning piece of artistry featuring a solitaires design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.32 PM.jpeg",
+    "category": "SOLITAIRES",
+    "price": 477,
+    "oldPrice": 667,
+    "rating": "4.8",
+    "reviews": 13,
+    "tags": []
+  },
+  {
+    "id": 2,
+    "title": "Imperial Velvet Necklace Set #2",
+    "description": "A stunning piece of artistry featuring a solitaires design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.33 PM (1).jpeg",
+    "category": "SOLITAIRES",
+    "price": 221,
+    "oldPrice": 309,
+    "rating": "4.8",
+    "reviews": 96,
+    "tags": []
+  },
+  {
+    "id": 3,
+    "title": "Celestial Jadau Cocktail Ring #3",
+    "description": "A stunning piece of artistry featuring a rings design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.33 PM (2).jpeg",
+    "category": "RINGS",
+    "price": 452,
+    "oldPrice": 632,
+    "rating": "4.8",
+    "reviews": 14,
+    "tags": []
+  },
+  {
+    "id": 4,
+    "title": "Imperial Velvet Choker #4",
+    "description": "A stunning piece of artistry featuring a necklace design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.33 PM (3).jpeg",
+    "category": "NECKLACE",
+    "price": 408,
+    "oldPrice": 571,
+    "rating": "4.8",
+    "reviews": 81,
+    "tags": [
+      "NEW ARRIVALS"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Celestial Jadau Choker Set #5",
+    "description": "A stunning piece of artistry featuring a solitaires design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.33 PM.jpeg",
+    "category": "SOLITAIRES",
+    "price": 429,
+    "oldPrice": 600,
+    "rating": "4.8",
+    "reviews": 38,
+    "tags": []
+  },
+  {
+    "id": 6,
+    "title": "Antique Gold Chandeliers #6",
+    "description": "A stunning piece of artistry featuring a earrings design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.34 PM (1).jpeg",
+    "category": "EARRINGS",
+    "price": 153,
+    "oldPrice": 214,
+    "rating": "4.8",
+    "reviews": 99,
+    "tags": []
+  },
+  {
+    "id": 7,
+    "title": "Classic Meenakari Drop Earrings #7",
+    "description": "A stunning piece of artistry featuring a earrings design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.34 PM (2).jpeg",
+    "category": "EARRINGS",
+    "price": 260,
+    "oldPrice": 364,
+    "rating": "4.8",
+    "reviews": 23,
+    "tags": []
+  },
+  {
+    "id": 8,
+    "title": "Ethereal Temple Work Bangles #8",
+    "description": "A stunning piece of artistry featuring a bangles & bracelets design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.34 PM (3).jpeg",
+    "category": "BANGLES & BRACELETS",
+    "price": 326,
+    "oldPrice": 456,
+    "rating": "4.8",
+    "reviews": 43,
+    "tags": [
+      "BESTSELLERS"
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Imperial Velvet Necklace Set #9",
+    "description": "A stunning piece of artistry featuring a solitaires design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.34 PM.jpeg",
+    "category": "SOLITAIRES",
+    "price": 385,
+    "oldPrice": 539,
+    "rating": "4.8",
+    "reviews": 58,
+    "tags": []
+  },
+  {
+    "id": 10,
+    "title": "Vintage Matte Gold Choker #10",
+    "description": "A stunning piece of artistry featuring a necklace design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.35 PM (1).jpeg",
+    "category": "NECKLACE",
+    "price": 471,
+    "oldPrice": 659,
+    "rating": "4.8",
+    "reviews": 83,
+    "tags": []
+  },
+  {
+    "id": 11,
+    "title": "Celestial Jadau Earcuffs #11",
+    "description": "A stunning piece of artistry featuring a earrings design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.35 PM (2).jpeg",
+    "category": "EARRINGS",
+    "price": 488,
+    "oldPrice": 683,
+    "rating": "4.8",
+    "reviews": 47,
+    "tags": [
+      "BESTSELLERS"
+    ]
+  },
+  {
+    "id": 12,
+    "title": "Royal Emerald Long Haram #12",
+    "description": "A stunning piece of artistry featuring a necklace design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.35 PM (3).jpeg",
+    "category": "NECKLACE",
+    "price": 269,
+    "oldPrice": 376,
+    "rating": "4.8",
+    "reviews": 58,
+    "tags": [
+      "NEW ARRIVALS"
+    ]
+  },
+  {
+    "id": 13,
+    "title": "Antique Gold Chandeliers #13",
+    "description": "A stunning piece of artistry featuring a earrings design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.35 PM (4).jpeg",
+    "category": "EARRINGS",
+    "price": 336,
+    "oldPrice": 470,
+    "rating": "4.8",
+    "reviews": 57,
+    "tags": [
+      "NEW ARRIVALS"
+    ]
+  },
+  {
+    "id": 14,
+    "title": "Royal Emerald Jhumkas #14",
+    "description": "A stunning piece of artistry featuring a earrings design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.35 PM.jpeg",
+    "category": "EARRINGS",
+    "price": 499,
+    "oldPrice": 698,
+    "rating": "4.8",
+    "reviews": 87,
+    "tags": []
+  },
+  {
+    "id": 15,
+    "title": "Antique Gold Chandeliers #15",
+    "description": "A stunning piece of artistry featuring a earrings design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.36 PM (1).jpeg",
+    "category": "EARRINGS",
+    "price": 275,
+    "oldPrice": 385,
+    "rating": "4.8",
+    "reviews": 69,
+    "tags": [
+      "NEW ARRIVALS"
+    ]
+  },
+  {
+    "id": 16,
+    "title": "Classic Meenakari Necklace #16",
+    "description": "A stunning piece of artistry featuring a necklace design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.36 PM (2).jpeg",
+    "category": "NECKLACE",
+    "price": 477,
+    "oldPrice": 667,
+    "rating": "4.8",
+    "reviews": 38,
+    "tags": [
+      "NEW ARRIVALS"
+    ]
+  },
+  {
+    "id": 17,
+    "title": "Royal Emerald Complete Set #17",
+    "description": "A stunning piece of artistry featuring a solitaires design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.36 PM (3).jpeg",
+    "category": "SOLITAIRES",
+    "price": 178,
+    "oldPrice": 249,
+    "rating": "4.8",
+    "reviews": 14,
+    "tags": [
+      "BESTSELLERS"
+    ]
+  },
+  {
+    "id": 18,
+    "title": "Antique Gold Band #18",
+    "description": "A stunning piece of artistry featuring a rings design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.36 PM.jpeg",
+    "category": "RINGS",
+    "price": 355,
+    "oldPrice": 496,
+    "rating": "4.8",
+    "reviews": 18,
+    "tags": [
+      "NEW ARRIVALS"
+    ]
+  },
+  {
+    "id": 19,
+    "title": "Royal Emerald Complete Set #19",
+    "description": "A stunning piece of artistry featuring a solitaires design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.37 PM (1).jpeg",
+    "category": "SOLITAIRES",
+    "price": 311,
+    "oldPrice": 435,
+    "rating": "4.8",
+    "reviews": 93,
+    "tags": [
+      "NEW ARRIVALS"
+    ]
+  },
+  {
+    "id": 20,
+    "title": "Imperial Matte Gold Jhumkas #20",
+    "description": "A stunning piece of artistry featuring a earrings design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.37 PM (2).jpeg",
+    "category": "EARRINGS",
+    "price": 479,
+    "oldPrice": 670,
+    "rating": "4.8",
+    "reviews": 28,
+    "tags": []
+  },
+  {
+    "id": 21,
+    "title": "Classic Meenakari Necklace #21",
+    "description": "A stunning piece of artistry featuring a necklace design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.37 PM.jpeg",
+    "category": "NECKLACE",
+    "price": 437,
+    "oldPrice": 611,
+    "rating": "4.8",
+    "reviews": 43,
+    "tags": []
+  },
+  {
+    "id": 22,
+    "title": "Bridal Polki Finish Studs #22",
+    "description": "A stunning piece of artistry featuring a earrings design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.38 PM (1).jpeg",
+    "category": "EARRINGS",
+    "price": 448,
+    "oldPrice": 627,
+    "rating": "4.8",
+    "reviews": 56,
+    "tags": [
+      "NEW ARRIVALS"
+    ]
+  },
+  {
+    "id": 23,
+    "title": "Imperial Matte Gold Jhumkas #23",
+    "description": "A stunning piece of artistry featuring a earrings design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.38 PM (2).jpeg",
+    "category": "EARRINGS",
+    "price": 410,
+    "oldPrice": 574,
+    "rating": "4.8",
+    "reviews": 21,
+    "tags": [
+      "NEW ARRIVALS"
+    ]
+  },
+  {
+    "id": 24,
+    "title": "Antique Gold Chandeliers #24",
+    "description": "A stunning piece of artistry featuring a earrings design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.38 PM (3).jpeg",
+    "category": "EARRINGS",
+    "price": 228,
+    "oldPrice": 319,
+    "rating": "4.8",
+    "reviews": 97,
+    "tags": []
+  },
+  {
+    "id": 25,
+    "title": "Imperial Matte Gold Jhumkas #25",
+    "description": "A stunning piece of artistry featuring a earrings design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.38 PM.jpeg",
+    "category": "EARRINGS",
+    "price": 345,
+    "oldPrice": 482,
+    "rating": "4.8",
+    "reviews": 77,
+    "tags": []
+  },
+  {
+    "id": 26,
+    "title": "Royal Emerald Jhumkas #26",
+    "description": "A stunning piece of artistry featuring a earrings design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.39 PM (1).jpeg",
+    "category": "EARRINGS",
+    "price": 155,
+    "oldPrice": 217,
+    "rating": "4.8",
+    "reviews": 97,
+    "tags": [
+      "BESTSELLERS"
+    ]
+  },
+  {
+    "id": 27,
+    "title": "Vintage Matte Gold Ring #27",
+    "description": "A stunning piece of artistry featuring a rings design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.39 PM (2).jpeg",
+    "category": "RINGS",
+    "price": 286,
+    "oldPrice": 400,
+    "rating": "4.8",
+    "reviews": 53,
+    "tags": []
+  },
+  {
+    "id": 28,
+    "title": "Imperial Velvet Choker #28",
+    "description": "A stunning piece of artistry featuring a necklace design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.39 PM (3).jpeg",
+    "category": "NECKLACE",
+    "price": 382,
+    "oldPrice": 534,
+    "rating": "4.8",
+    "reviews": 43,
+    "tags": [
+      "BESTSELLERS"
+    ]
+  },
+  {
+    "id": 29,
+    "title": "Classic Meenakari Necklace #29",
+    "description": "A stunning piece of artistry featuring a necklace design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.39 PM.jpeg",
+    "category": "NECKLACE",
+    "price": 241,
+    "oldPrice": 337,
+    "rating": "4.8",
+    "reviews": 23,
+    "tags": [
+      "BESTSELLERS"
+    ]
+  },
+  {
+    "id": 30,
+    "title": "Vintage Matte Gold Kada #30",
+    "description": "A stunning piece of artistry featuring a bangles & bracelets design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.40 PM (1).jpeg",
+    "category": "BANGLES & BRACELETS",
+    "price": 302,
+    "oldPrice": 422,
+    "rating": "4.8",
+    "reviews": 74,
+    "tags": []
+  },
+  {
+    "id": 31,
+    "title": "Ethereal Temple Work Bangles #31",
+    "description": "A stunning piece of artistry featuring a bangles & bracelets design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.40 PM (2).jpeg",
+    "category": "BANGLES & BRACELETS",
+    "price": 232,
+    "oldPrice": 324,
+    "rating": "4.8",
+    "reviews": 77,
+    "tags": [
+      "BESTSELLERS"
+    ]
+  },
+  {
+    "id": 32,
+    "title": "Classic Meenakari Drop Earrings #32",
+    "description": "A stunning piece of artistry featuring a earrings design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.40 PM (3).jpeg",
+    "category": "EARRINGS",
+    "price": 456,
+    "oldPrice": 638,
+    "rating": "4.8",
+    "reviews": 72,
+    "tags": [
+      "NEW ARRIVALS"
+    ]
+  },
+  {
+    "id": 33,
+    "title": "Royal Emerald Complete Set #33",
+    "description": "A stunning piece of artistry featuring a solitaires design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.40 PM (4).jpeg",
+    "category": "SOLITAIRES",
+    "price": 307,
+    "oldPrice": 429,
+    "rating": "4.8",
+    "reviews": 17,
+    "tags": []
+  },
+  {
+    "id": 34,
+    "title": "Royal Emerald Long Haram #34",
+    "description": "A stunning piece of artistry featuring a necklace design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.40 PM.jpeg",
+    "category": "NECKLACE",
+    "price": 190,
+    "oldPrice": 266,
+    "rating": "4.8",
+    "reviews": 72,
+    "tags": [
+      "BESTSELLERS"
+    ]
+  },
+  {
+    "id": 35,
+    "title": "Antique Gold Chandeliers #35",
+    "description": "A stunning piece of artistry featuring a earrings design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.41 PM (1).jpeg",
+    "category": "EARRINGS",
+    "price": 422,
+    "oldPrice": 590,
+    "rating": "4.8",
+    "reviews": 26,
+    "tags": [
+      "NEW ARRIVALS"
+    ]
+  },
+  {
+    "id": 36,
+    "title": "Ethereal Temple Work Balis #36",
+    "description": "A stunning piece of artistry featuring a earrings design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.41 PM (2).jpeg",
+    "category": "EARRINGS",
+    "price": 234,
+    "oldPrice": 327,
+    "rating": "4.8",
+    "reviews": 77,
+    "tags": [
+      "BESTSELLERS"
+    ]
+  },
+  {
+    "id": 37,
+    "title": "Celestial Jadau Necklace Set #37",
+    "description": "A stunning piece of artistry featuring a necklace design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.41 PM (3).jpeg",
+    "category": "NECKLACE",
+    "price": 366,
+    "oldPrice": 512,
+    "rating": "4.8",
+    "reviews": 79,
+    "tags": [
+      "NEW ARRIVALS"
+    ]
+  },
+  {
+    "id": 38,
+    "title": "Celestial Jadau Bracelet #38",
+    "description": "A stunning piece of artistry featuring a bangles & bracelets design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.41 PM.jpeg",
+    "category": "BANGLES & BRACELETS",
+    "price": 309,
+    "oldPrice": 432,
+    "rating": "4.8",
+    "reviews": 95,
+    "tags": []
+  },
+  {
+    "id": 39,
+    "title": "Celestial Jadau Choker Set #39",
+    "description": "A stunning piece of artistry featuring a solitaires design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.42 PM (1).jpeg",
+    "category": "SOLITAIRES",
+    "price": 414,
+    "oldPrice": 579,
+    "rating": "4.8",
+    "reviews": 25,
+    "tags": []
+  },
+  {
+    "id": 40,
+    "title": "Celestial Jadau Earcuffs #40",
+    "description": "A stunning piece of artistry featuring a earrings design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.42 PM (2).jpeg",
+    "category": "EARRINGS",
+    "price": 160,
+    "oldPrice": 224,
+    "rating": "4.8",
+    "reviews": 85,
+    "tags": []
+  },
+  {
+    "id": 41,
+    "title": "Imperial Velvet Necklace Set #41",
+    "description": "A stunning piece of artistry featuring a solitaires design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.42 PM (3).jpeg",
+    "category": "SOLITAIRES",
+    "price": 473,
+    "oldPrice": 662,
+    "rating": "4.8",
+    "reviews": 39,
+    "tags": []
+  },
+  {
+    "id": 42,
+    "title": "Royal Emerald Long Haram #42",
+    "description": "A stunning piece of artistry featuring a necklace design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.42 PM.jpeg",
+    "category": "NECKLACE",
+    "price": 319,
+    "oldPrice": 446,
+    "rating": "4.8",
+    "reviews": 75,
+    "tags": [
+      "NEW ARRIVALS"
+    ]
+  },
+  {
+    "id": 43,
+    "title": "Antique Gold Chandeliers #43",
+    "description": "A stunning piece of artistry featuring a earrings design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.43 PM (1).jpeg",
+    "category": "EARRINGS",
+    "price": 259,
+    "oldPrice": 362,
+    "rating": "4.8",
+    "reviews": 83,
+    "tags": []
+  },
+  {
+    "id": 44,
+    "title": "Bridal Polki Finish Studs #44",
+    "description": "A stunning piece of artistry featuring a earrings design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.43 PM (2).jpeg",
+    "category": "EARRINGS",
+    "price": 392,
+    "oldPrice": 548,
+    "rating": "4.8",
+    "reviews": 34,
+    "tags": [
+      "NEW ARRIVALS"
+    ]
+  },
+  {
+    "id": 45,
+    "title": "Devotional Kundan Studded Necklace #45",
+    "description": "A stunning piece of artistry featuring a necklace design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.43 PM (3).jpeg",
+    "category": "NECKLACE",
+    "price": 331,
+    "oldPrice": 463,
+    "rating": "4.8",
+    "reviews": 62,
+    "tags": [
+      "NEW ARRIVALS"
+    ]
+  },
+  {
+    "id": 46,
+    "title": "Royal Emerald Jhumkas #46",
+    "description": "A stunning piece of artistry featuring a earrings design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.43 PM.jpeg",
+    "category": "EARRINGS",
+    "price": 494,
+    "oldPrice": 691,
+    "rating": "4.8",
+    "reviews": 17,
+    "tags": []
+  },
+  {
+    "id": 47,
+    "title": "Celestial Jadau Earcuffs #47",
+    "description": "A stunning piece of artistry featuring a earrings design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.44 PM (1).jpeg",
+    "category": "EARRINGS",
+    "price": 205,
+    "oldPrice": 287,
+    "rating": "4.8",
+    "reviews": 34,
+    "tags": []
+  },
+  {
+    "id": 48,
+    "title": "Royal Emerald Complete Set #48",
+    "description": "A stunning piece of artistry featuring a solitaires design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.44 PM (2).jpeg",
+    "category": "SOLITAIRES",
+    "price": 366,
+    "oldPrice": 512,
+    "rating": "4.8",
+    "reviews": 45,
+    "tags": [
+      "NEW ARRIVALS"
+    ]
+  },
+  {
+    "id": 49,
+    "title": "Bridal Polki Finish Set #49",
+    "description": "A stunning piece of artistry featuring a necklace design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.44 PM.jpeg",
+    "category": "NECKLACE",
+    "price": 188,
+    "oldPrice": 263,
+    "rating": "4.8",
+    "reviews": 80,
+    "tags": [
+      "NEW ARRIVALS"
+    ]
+  },
+  {
+    "id": 50,
+    "title": "Vintage Velvet Studs #50",
+    "description": "A stunning piece of artistry featuring a earrings design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.45 PM (1).jpeg",
+    "category": "EARRINGS",
+    "price": 426,
+    "oldPrice": 596,
+    "rating": "4.8",
+    "reviews": 21,
+    "tags": [
+      "BESTSELLERS"
+    ]
+  },
+  {
+    "id": 51,
+    "title": "Antique Gold Mala #51",
+    "description": "A stunning piece of artistry featuring a necklace design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.45 PM (2).jpeg",
+    "category": "NECKLACE",
+    "price": 271,
+    "oldPrice": 379,
+    "rating": "4.8",
+    "reviews": 62,
+    "tags": []
+  },
+  {
+    "id": 52,
+    "title": "Vintage Velvet Studs #52",
+    "description": "A stunning piece of artistry featuring a earrings design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.45 PM (3).jpeg",
+    "category": "EARRINGS",
+    "price": 355,
+    "oldPrice": 496,
+    "rating": "4.8",
+    "reviews": 31,
+    "tags": [
+      "NEW ARRIVALS"
+    ]
+  },
+  {
+    "id": 53,
+    "title": "Celestial Jadau Choker Set #53",
+    "description": "A stunning piece of artistry featuring a solitaires design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.45 PM.jpeg",
+    "category": "SOLITAIRES",
+    "price": 285,
+    "oldPrice": 399,
+    "rating": "4.8",
+    "reviews": 46,
+    "tags": [
+      "NEW ARRIVALS"
+    ]
+  },
+  {
+    "id": 54,
+    "title": "Imperial Matte Gold Jhumkas #54",
+    "description": "A stunning piece of artistry featuring a earrings design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.46 PM (1).jpeg",
+    "category": "EARRINGS",
+    "price": 434,
+    "oldPrice": 607,
+    "rating": "4.8",
+    "reviews": 29,
+    "tags": []
+  },
+  {
+    "id": 55,
+    "title": "Vintage Velvet Studs #55",
+    "description": "A stunning piece of artistry featuring a earrings design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.46 PM (2).jpeg",
+    "category": "EARRINGS",
+    "price": 179,
+    "oldPrice": 250,
+    "rating": "4.8",
+    "reviews": 50,
+    "tags": []
+  },
+  {
+    "id": 56,
+    "title": "Antique Gold Chandeliers #56",
+    "description": "A stunning piece of artistry featuring a earrings design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.46 PM (3).jpeg",
+    "category": "EARRINGS",
+    "price": 407,
+    "oldPrice": 569,
+    "rating": "4.8",
+    "reviews": 17,
+    "tags": [
+      "BESTSELLERS"
+    ]
+  },
+  {
+    "id": 57,
+    "title": "Royal Emerald Bangles #57",
+    "description": "A stunning piece of artistry featuring a bangles & bracelets design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.46 PM.jpeg",
+    "category": "BANGLES & BRACELETS",
+    "price": 191,
+    "oldPrice": 267,
+    "rating": "4.8",
+    "reviews": 18,
+    "tags": [
+      "NEW ARRIVALS"
+    ]
+  },
+  {
+    "id": 58,
+    "title": "Bridal Polki Finish Studs #58",
+    "description": "A stunning piece of artistry featuring a earrings design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.47 PM (1).jpeg",
+    "category": "EARRINGS",
+    "price": 270,
+    "oldPrice": 378,
+    "rating": "4.8",
+    "reviews": 25,
+    "tags": [
+      "BESTSELLERS"
+    ]
+  },
+  {
+    "id": 59,
+    "title": "Royal Emerald Complete Set #59",
+    "description": "A stunning piece of artistry featuring a solitaires design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.47 PM (2).jpeg",
+    "category": "SOLITAIRES",
+    "price": 441,
+    "oldPrice": 617,
+    "rating": "4.8",
+    "reviews": 84,
+    "tags": [
+      "NEW ARRIVALS"
+    ]
+  },
+  {
+    "id": 60,
+    "title": "Classic Meenakari Drop Earrings #60",
+    "description": "A stunning piece of artistry featuring a earrings design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.47 PM (3).jpeg",
+    "category": "EARRINGS",
+    "price": 364,
+    "oldPrice": 509,
+    "rating": "4.8",
+    "reviews": 43,
+    "tags": [
+      "NEW ARRIVALS"
+    ]
+  },
+  {
+    "id": 61,
+    "title": "Ethereal Temple Work Balis #61",
+    "description": "A stunning piece of artistry featuring a earrings design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.47 PM (4).jpeg",
+    "category": "EARRINGS",
+    "price": 272,
+    "oldPrice": 380,
+    "rating": "4.8",
+    "reviews": 60,
+    "tags": [
+      "NEW ARRIVALS"
+    ]
+  },
+  {
+    "id": 62,
+    "title": "Antique Gold Bridal Set #62",
+    "description": "A stunning piece of artistry featuring a solitaires design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.47 PM.jpeg",
+    "category": "SOLITAIRES",
+    "price": 384,
+    "oldPrice": 537,
+    "rating": "4.8",
+    "reviews": 19,
+    "tags": [
+      "NEW ARRIVALS"
+    ]
+  },
+  {
+    "id": 63,
+    "title": "Royal Emerald Jhumkas #63",
+    "description": "A stunning piece of artistry featuring a earrings design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.48 PM (1).jpeg",
+    "category": "EARRINGS",
+    "price": 438,
+    "oldPrice": 613,
+    "rating": "4.8",
+    "reviews": 19,
+    "tags": []
+  },
+  {
+    "id": 64,
+    "title": "Antique Gold Bridal Set #64",
+    "description": "A stunning piece of artistry featuring a solitaires design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.48 PM (2).jpeg",
+    "category": "SOLITAIRES",
+    "price": 217,
+    "oldPrice": 303,
+    "rating": "4.8",
+    "reviews": 18,
+    "tags": [
+      "BESTSELLERS"
+    ]
+  },
+  {
+    "id": 65,
+    "title": "Antique Gold Bridal Set #65",
+    "description": "A stunning piece of artistry featuring a solitaires design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.48 PM (3).jpeg",
+    "category": "SOLITAIRES",
+    "price": 339,
+    "oldPrice": 474,
+    "rating": "4.8",
+    "reviews": 30,
+    "tags": []
+  },
+  {
+    "id": 66,
+    "title": "Classic Meenakari Necklace #66",
+    "description": "A stunning piece of artistry featuring a necklace design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.48 PM.jpeg",
+    "category": "NECKLACE",
+    "price": 304,
+    "oldPrice": 425,
+    "rating": "4.8",
+    "reviews": 11,
+    "tags": []
+  },
+  {
+    "id": 67,
+    "title": "Imperial Velvet Necklace Set #67",
+    "description": "A stunning piece of artistry featuring a solitaires design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.49 PM (1).jpeg",
+    "category": "SOLITAIRES",
+    "price": 489,
+    "oldPrice": 684,
+    "rating": "4.8",
+    "reviews": 27,
+    "tags": [
+      "NEW ARRIVALS"
+    ]
+  },
+  {
+    "id": 68,
+    "title": "Antique Gold Chandeliers #68",
+    "description": "A stunning piece of artistry featuring a earrings design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.49 PM (2).jpeg",
+    "category": "EARRINGS",
+    "price": 433,
+    "oldPrice": 606,
+    "rating": "4.8",
+    "reviews": 44,
+    "tags": []
+  },
+  {
+    "id": 69,
+    "title": "Celestial Jadau Necklace Set #69",
+    "description": "A stunning piece of artistry featuring a necklace design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.49 PM.jpeg",
+    "category": "NECKLACE",
+    "price": 325,
+    "oldPrice": 454,
+    "rating": "4.8",
+    "reviews": 97,
+    "tags": []
+  },
+  {
+    "id": 70,
+    "title": "Antique Gold Bridal Set #70",
+    "description": "A stunning piece of artistry featuring a solitaires design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.50 PM (1).jpeg",
+    "category": "SOLITAIRES",
+    "price": 400,
+    "oldPrice": 560,
+    "rating": "4.8",
+    "reviews": 16,
+    "tags": []
+  },
+  {
+    "id": 71,
+    "title": "Imperial Velvet Necklace Set #71",
+    "description": "A stunning piece of artistry featuring a solitaires design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.50 PM (2).jpeg",
+    "category": "SOLITAIRES",
+    "price": 291,
+    "oldPrice": 407,
+    "rating": "4.8",
+    "reviews": 10,
+    "tags": []
+  },
+  {
+    "id": 72,
+    "title": "Antique Gold Chandeliers #72",
+    "description": "A stunning piece of artistry featuring a earrings design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.50 PM (3).jpeg",
+    "category": "EARRINGS",
+    "price": 284,
+    "oldPrice": 397,
+    "rating": "4.8",
+    "reviews": 66,
+    "tags": []
+  },
+  {
+    "id": 73,
+    "title": "Royal Emerald Jhumkas #73",
+    "description": "A stunning piece of artistry featuring a earrings design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.50 PM (4).jpeg",
+    "category": "EARRINGS",
+    "price": 154,
+    "oldPrice": 215,
+    "rating": "4.8",
+    "reviews": 19,
+    "tags": [
+      "BESTSELLERS"
+    ]
+  },
+  {
+    "id": 74,
+    "title": "Vintage Velvet Studs #74",
+    "description": "A stunning piece of artistry featuring a earrings design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.50 PM.jpeg",
+    "category": "EARRINGS",
+    "price": 226,
+    "oldPrice": 316,
+    "rating": "4.8",
+    "reviews": 57,
+    "tags": []
+  },
+  {
+    "id": 75,
+    "title": "Imperial Velvet Choker #75",
+    "description": "A stunning piece of artistry featuring a necklace design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.51 PM (1).jpeg",
+    "category": "NECKLACE",
+    "price": 215,
+    "oldPrice": 301,
+    "rating": "4.8",
+    "reviews": 49,
+    "tags": [
+      "NEW ARRIVALS"
+    ]
+  },
+  {
+    "id": 76,
+    "title": "Antique Gold Cuff #76",
+    "description": "A stunning piece of artistry featuring a bangles & bracelets design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.51 PM (2).jpeg",
+    "category": "BANGLES & BRACELETS",
+    "price": 170,
+    "oldPrice": 237,
+    "rating": "4.8",
+    "reviews": 36,
+    "tags": [
+      "NEW ARRIVALS"
+    ]
+  },
+  {
+    "id": 77,
+    "title": "Celestial Jadau Choker Set #77",
+    "description": "A stunning piece of artistry featuring a solitaires design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.51 PM (3).jpeg",
+    "category": "SOLITAIRES",
+    "price": 331,
+    "oldPrice": 463,
+    "rating": "4.8",
+    "reviews": 89,
+    "tags": [
+      "NEW ARRIVALS"
+    ]
+  },
+  {
+    "id": 78,
+    "title": "Antique Gold Mala #78",
+    "description": "A stunning piece of artistry featuring a necklace design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.51 PM.jpeg",
+    "category": "NECKLACE",
+    "price": 271,
+    "oldPrice": 379,
+    "rating": "4.8",
+    "reviews": 32,
+    "tags": [
+      "BESTSELLERS"
+    ]
+  },
+  {
+    "id": 79,
+    "title": "Royal Emerald Complete Set #79",
+    "description": "A stunning piece of artistry featuring a solitaires design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.52 PM (1).jpeg",
+    "category": "SOLITAIRES",
+    "price": 162,
+    "oldPrice": 226,
+    "rating": "4.8",
+    "reviews": 52,
+    "tags": []
+  },
+  {
+    "id": 80,
+    "title": "Celestial Jadau Necklace Set #80",
+    "description": "A stunning piece of artistry featuring a necklace design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.52 PM (2).jpeg",
+    "category": "NECKLACE",
+    "price": 492,
+    "oldPrice": 688,
+    "rating": "4.8",
+    "reviews": 44,
+    "tags": [
+      "NEW ARRIVALS"
+    ]
+  },
+  {
+    "id": 81,
+    "title": "Vintage Velvet Studs #81",
+    "description": "A stunning piece of artistry featuring a earrings design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.52 PM (3).jpeg",
+    "category": "EARRINGS",
+    "price": 345,
+    "oldPrice": 482,
+    "rating": "4.8",
+    "reviews": 70,
+    "tags": [
+      "NEW ARRIVALS"
+    ]
+  },
+  {
+    "id": 82,
+    "title": "Vintage Matte Gold Choker #82",
+    "description": "A stunning piece of artistry featuring a necklace design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.52 PM.jpeg",
+    "category": "NECKLACE",
+    "price": 385,
+    "oldPrice": 539,
+    "rating": "4.8",
+    "reviews": 49,
+    "tags": [
+      "BESTSELLERS"
+    ]
+  },
+  {
+    "id": 83,
+    "title": "Celestial Jadau Earcuffs #83",
+    "description": "A stunning piece of artistry featuring a earrings design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.53 PM (1).jpeg",
+    "category": "EARRINGS",
+    "price": 266,
+    "oldPrice": 372,
+    "rating": "4.8",
+    "reviews": 13,
+    "tags": []
+  },
+  {
+    "id": 84,
+    "title": "Imperial Velvet Necklace Set #84",
+    "description": "A stunning piece of artistry featuring a solitaires design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.53 PM (2).jpeg",
+    "category": "SOLITAIRES",
+    "price": 292,
+    "oldPrice": 408,
+    "rating": "4.8",
+    "reviews": 45,
+    "tags": []
+  },
+  {
+    "id": 85,
+    "title": "Antique Gold Bridal Set #85",
+    "description": "A stunning piece of artistry featuring a solitaires design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.53 PM (3).jpeg",
+    "category": "SOLITAIRES",
+    "price": 497,
+    "oldPrice": 695,
+    "rating": "4.8",
+    "reviews": 13,
+    "tags": [
+      "NEW ARRIVALS"
+    ]
+  },
+  {
+    "id": 86,
+    "title": "Ethereal Temple Work Bangles #86",
+    "description": "A stunning piece of artistry featuring a bangles & bracelets design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.53 PM.jpeg",
+    "category": "BANGLES & BRACELETS",
+    "price": 241,
+    "oldPrice": 337,
+    "rating": "4.8",
+    "reviews": 43,
+    "tags": []
+  },
+  {
+    "id": 87,
+    "title": "Antique Gold Bridal Set #87",
+    "description": "A stunning piece of artistry featuring a solitaires design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.54 PM (1).jpeg",
+    "category": "SOLITAIRES",
+    "price": 326,
+    "oldPrice": 456,
+    "rating": "4.8",
+    "reviews": 65,
+    "tags": []
+  },
+  {
+    "id": 88,
+    "title": "Ethereal Temple Work Bangles #88",
+    "description": "A stunning piece of artistry featuring a bangles & bracelets design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.54 PM (2).jpeg",
+    "category": "BANGLES & BRACELETS",
+    "price": 347,
+    "oldPrice": 485,
+    "rating": "4.8",
+    "reviews": 34,
+    "tags": [
+      "NEW ARRIVALS"
+    ]
+  },
+  {
+    "id": 89,
+    "title": "Ethereal Temple Work Bangles #89",
+    "description": "A stunning piece of artistry featuring a bangles & bracelets design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.54 PM (3).jpeg",
+    "category": "BANGLES & BRACELETS",
+    "price": 150,
+    "oldPrice": 210,
+    "rating": "4.8",
+    "reviews": 78,
+    "tags": [
+      "NEW ARRIVALS"
+    ]
+  },
+  {
+    "id": 90,
+    "title": "Royal Emerald Complete Set #90",
+    "description": "A stunning piece of artistry featuring a solitaires design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.54 PM.jpeg",
+    "category": "SOLITAIRES",
+    "price": 493,
+    "oldPrice": 690,
+    "rating": "4.8",
+    "reviews": 56,
+    "tags": [
+      "NEW ARRIVALS"
+    ]
+  },
+  {
+    "id": 91,
+    "title": "Antique Gold Bridal Set #91",
+    "description": "A stunning piece of artistry featuring a solitaires design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.55 PM (1).jpeg",
+    "category": "SOLITAIRES",
+    "price": 319,
+    "oldPrice": 446,
+    "rating": "4.8",
+    "reviews": 94,
+    "tags": [
+      "BESTSELLERS"
+    ]
+  },
+  {
+    "id": 92,
+    "title": "Antique Gold Bridal Set #92",
+    "description": "A stunning piece of artistry featuring a solitaires design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.55 PM (2).jpeg",
+    "category": "SOLITAIRES",
+    "price": 303,
+    "oldPrice": 424,
+    "rating": "4.8",
+    "reviews": 95,
+    "tags": []
+  },
+  {
+    "id": 93,
+    "title": "Royal Emerald Complete Set #93",
+    "description": "A stunning piece of artistry featuring a solitaires design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.55 PM (3).jpeg",
+    "category": "SOLITAIRES",
+    "price": 301,
+    "oldPrice": 421,
+    "rating": "4.8",
+    "reviews": 34,
+    "tags": [
+      "NEW ARRIVALS"
+    ]
+  },
+  {
+    "id": 94,
+    "title": "Antique Gold Chandeliers #94",
+    "description": "A stunning piece of artistry featuring a earrings design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.55 PM.jpeg",
+    "category": "EARRINGS",
+    "price": 496,
+    "oldPrice": 694,
+    "rating": "4.8",
+    "reviews": 88,
+    "tags": []
+  },
+  {
+    "id": 95,
+    "title": "Antique Gold Bridal Set #95",
+    "description": "A stunning piece of artistry featuring a solitaires design. Ideal for a grand ethnic look with a premium velvet finish.",
+    "image": "/img/velvet/WhatsApp Image 2026-04-27 at 9.43.56 PM.jpeg",
+    "category": "SOLITAIRES",
+    "price": 150,
+    "oldPrice": 210,
+    "rating": "4.8",
+    "reviews": 46,
+    "tags": [
+      "NEW ARRIVALS"
+    ]
+  }
 ];
